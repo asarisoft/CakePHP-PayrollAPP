@@ -3,7 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 
-class MaritalstatusesController extends AppController
+class MaritalStatusesController extends AppController
 {
     public function index()
     {

@@ -37,7 +37,10 @@ class PayrollsController extends AppController
     {
         $payroll = $this->Payrolls->newEntity();
         if ($this->request->is('post')) {
-            $payroll = $this->Payrolls->patchEntity($payroll, $this->request->data);
+            $payroll = $this->Payrolls->patchEntity($payroll, $this->request->data, [
+                'validate' => false,
+                'associated' => ['SalaryAllowances']
+            ]);
             if ($this->Payrolls->save($payroll)) {
                 $this->Flash->success(__('The payroll has been saved.'));
                 return $this->redirect(['action' => 'index']);
@@ -86,9 +89,9 @@ class PayrollsController extends AppController
     public function populate() {
         $Users = TableRegistry::get('Users');
         if ($this->request->is('ajax')) {
-            $user_id = $this->request->data['users_id'];
-            $month = $this->request->data['month']['month'];
-            $year = $this->request->data['year']['year'];
+            $user_id = $this->request->data['Payrolls']['users_id'];
+            $month = $this->request->data['Payrolls']['month']['month'];
+            $year = $this->request->data['Payrolls']['year']['year'];
 
             # Get Basic Salary
             $user = $Users
@@ -113,24 +116,9 @@ class PayrollsController extends AppController
             }
 
             # Get Other Allowance
-            // Get a single article, and related comments
-            // $article = $Users->get(1, [
-            //     'contain' => ['Allowances']
-            // ]);
-            // debug($article);
-            //
-            // $query =  $Users->find('all')
-            //     ->contain(['Allowances'])
-            //     ->first();
-            // debug($query);
-
-            # Oke 1
-            // $comment = $Users->allowances->find('all', [
-            //     "conditions" => ['users_id' => $user_id]]);
-            // foreach ($comment as $value) {
-            //     debug($value);
-            // }
-            // debug($comment);
+            $other_allowances = $Users->allowances->find('all', [
+                "conditions" => ['users_id' => $user_id]]);
+            $this->set('other_allowances', $other_allowances);
 
             # Gate Collector Share Profit
             $this->render('ajax_response', 'ajax');
