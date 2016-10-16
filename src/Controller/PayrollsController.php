@@ -2,20 +2,14 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Routing\Router;
+// use Cake\I18n\Time;
+use Cake\I18n\Date;
+use Cake\ORM\TableRegistry;
 
-/**
- * Payrolls Controller
- *
- * @property \App\Model\Table\PayrollsTable $Payrolls
- */
 class PayrollsController extends AppController
 {
 
-    /**
-     * Index method
-     *
-     * @return \Cake\Network\Response|null
-     */
     public function index()
     {
         $this->paginate = [
@@ -25,15 +19,10 @@ class PayrollsController extends AppController
 
         $this->set(compact('payrolls'));
         $this->set('_serialize', ['payrolls']);
+
+        $users = TableRegistry::get('Users');
     }
 
-    /**
-     * View method
-     *
-     * @param string|null $id Payroll id.
-     * @return \Cake\Network\Response|null
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
     public function view($id = null)
     {
         $payroll = $this->Payrolls->get($id, [
@@ -44,11 +33,6 @@ class PayrollsController extends AppController
         $this->set('_serialize', ['payroll']);
     }
 
-    /**
-     * Add method
-     *
-     * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
-     */
     public function add()
     {
         $payroll = $this->Payrolls->newEntity();
@@ -56,7 +40,6 @@ class PayrollsController extends AppController
             $payroll = $this->Payrolls->patchEntity($payroll, $this->request->data);
             if ($this->Payrolls->save($payroll)) {
                 $this->Flash->success(__('The payroll has been saved.'));
-
                 return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error(__('The payroll could not be saved. Please, try again.'));
@@ -67,13 +50,6 @@ class PayrollsController extends AppController
         $this->set('_serialize', ['payroll']);
     }
 
-    /**
-     * Edit method
-     *
-     * @param string|null $id Payroll id.
-     * @return \Cake\Network\Response|void Redirects on successful edit, renders view otherwise.
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
     public function edit($id = null)
     {
         $payroll = $this->Payrolls->get($id, [
@@ -94,13 +70,6 @@ class PayrollsController extends AppController
         $this->set('_serialize', ['payroll']);
     }
 
-    /**
-     * Delete method
-     *
-     * @param string|null $id Payroll id.
-     * @return \Cake\Network\Response|null Redirects to index.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
@@ -113,4 +82,61 @@ class PayrollsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function populate() {
+        $Users = TableRegistry::get('Users');
+        if ($this->request->is('ajax')) {
+            $user_id = $this->request->data['users_id'];
+            $month = $this->request->data['month']['month'];
+            $year = $this->request->data['year']['year'];
+
+            # Get Basic Salary
+            $user = $Users
+                ->find()
+                ->contain(['JobPositions', 'Educations', 'MaritalStatuses', 'Transports', 'Allowances'])
+                ->matching('Allowances')
+                ->where([
+                    'Users.id' => $user_id,
+                ])->last();
+
+            $this->set('basic_salary',  $user->basic_salary);
+            $this->set('position_allowance', $user->job_position->position_allowance);
+            $this->set('communication_allowance', $user->job_position->communication_allowance);
+            $this->set('education_allowance', $user->education->education_allowance);
+            $this->set('transport_allowance', $user->transport->transport_allowance);
+
+            # Get Rice Allowances
+            if (date_diff(Date::now(), new Date($user->tmt))->y >= $user->marital_status->after_years) {
+                $this->set('rice_allowance', $user->marital_status->rice_allowance);
+            } else {
+                $this->set('rice_allowance', 0);
+            }
+
+            # Get Other Allowance
+            // Get a single article, and related comments
+            // $article = $Users->get(1, [
+            //     'contain' => ['Allowances']
+            // ]);
+            // debug($article);
+            //
+            // $query =  $Users->find('all')
+            //     ->contain(['Allowances'])
+            //     ->first();
+            // debug($query);
+
+            # Oke 1
+            // $comment = $Users->allowances->find('all', [
+            //     "conditions" => ['users_id' => $user_id]]);
+            // foreach ($comment as $value) {
+            //     debug($value);
+            // }
+            // debug($comment);
+
+            # Gate Collector Share Profit
+            $this->render('ajax_response', 'ajax');
+        }
+
+    }
+
+
 }
