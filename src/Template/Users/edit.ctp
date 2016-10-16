@@ -22,7 +22,6 @@
             echo $this->Form->input('marital_statuses_id', ['options' => $maritalStatuses]);
             echo $this->Form->input('educations_id', ['options' => $educations]);
             echo $this->Form->input('basic_salary');
-            echo $this->Form->input('password');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

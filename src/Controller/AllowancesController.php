@@ -2,10 +2,12 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 
 class AllowancesController extends AppController
 {
+
     public function index()
     {
         $this->paginate = [

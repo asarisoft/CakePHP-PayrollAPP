@@ -83,6 +83,14 @@ class UsersTable extends Table
             ->requirePresence('basic_salary', 'create')
             ->notEmpty('basic_salary');
 
+        $validator
+            ->requirePresence('password', 'create')
+            ->notEmpty('password');
+
+        $validator
+            ->requirePresence('username', 'create')
+            ->notEmpty('username');
+
         return $validator;
     }
 
@@ -95,6 +103,7 @@ class UsersTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
+        $rules->add($rules->isUnique(['username']));
         $rules->add($rules->existsIn(['transports_id'], 'Transports'));
         $rules->add($rules->existsIn(['job_positions_id'], 'JobPositions'));
         $rules->add($rules->existsIn(['marital_statuses_id'], 'MaritalStatuses'));
