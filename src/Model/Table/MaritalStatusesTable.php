@@ -17,7 +17,7 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Maritalstatus[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Maritalstatus findOrCreate($search, callable $callback = null)
  */
-class MaritalstatusesTable extends Table
+class MaritalStatusesTable extends Table
 {
 
     /**

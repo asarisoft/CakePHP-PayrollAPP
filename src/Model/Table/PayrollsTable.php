@@ -23,6 +23,9 @@ class PayrollsTable extends Table
             'foreignKey' => 'users_id',
             'joinType' => 'INNER'
         ]);
+        $this->hasMany('salaryallowances', [
+            'foreignKey' => 'payrolls_id'
+        ]);
     }
 
     public function validationDefault(Validator $validator)

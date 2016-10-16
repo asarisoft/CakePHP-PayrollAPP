@@ -10,15 +10,15 @@
     <fieldset>
         <legend><?= __('Add Payroll') ?></legend>
         <?php
-            echo $this->Form->input('users_id', ['options' => $users]);
-            echo $this->Form->month('month', ['empty' => false]);
-            echo $this->Form->year('year', [
+            echo $this->Form->input('Payrolls.users_id', ['options' => $users]);
+            echo $this->Form->month('Payrolls.month', ['empty' => false]);
+            echo $this->Form->year('Payrolls.year', [
                 'minYear' => date('Y') - 1,
                 'maxYear' =>  date('Y') + 1,
                 'orderYear' => 'asc',
                 'empty'=>false,
             ]);
-            echo $this->Form->input('collector_share_profit');
+            echo $this->Form->input('Payrolls.collector_share_profit');
         ?>
         <div id="container"></div>
     </fieldset>
@@ -42,7 +42,6 @@ $(document).ready(function(){
             url: '<?= Router::Url(['controller' => 'payrolls', 'action' => 'populate'], TRUE); ?>',
             cache: false,
             success: function(response) {
-                // console.log(response);
                 $( '#container' ).html( response );
             }
         });
