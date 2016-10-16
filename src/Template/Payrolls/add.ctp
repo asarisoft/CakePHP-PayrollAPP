@@ -1,13 +1,12 @@
+<?php use Cake\Routing\Router; ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('List Payrolls'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="payrolls form large-9 medium-8 columns content">
-    <?= $this->Form->create($payroll) ?>
+    <?= $this->Form->create($payroll, ['id'=>'myform']) ?>
     <fieldset>
         <legend><?= __('Add Payroll') ?></legend>
         <?php
@@ -19,23 +18,36 @@
                 'orderYear' => 'asc',
                 'empty'=>false,
             ]);
-
-            // Button Generate
-
-            echo $this->Form->input('basic_salary');
-            echo $this->Form->input('position_allowance');
-            echo $this->Form->input('communication_allowance');
-            echo $this->Form->input('rice_allowance');
-            echo $this->Form->input('education_allowance');
-            echo $this->Form->input('transport_allowance');
             echo $this->Form->input('collector_share_profit');
-            echo $this->Form->input('other_allowance_1');
-            echo $this->Form->input('other_allowance_2');
-            echo $this->Form->input('other_allowance_3');
-            echo $this->Form->input('other_allowance_4');
-            echo $this->Form->input('other_allowance_5');
         ?>
+        <div id="container"></div>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
+
+    <button id="generate_button" onclick="">Generate</button>
+
 </div>
+
+
+<?php echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'); ?>
+<script>
+$(document).ready(function(){
+    $('#generate_button').click(function(){
+        console.log("clicked");
+
+        $.ajax({
+            type: 'POST',
+            data:  $('#myform').serialize(),
+            url: '<?= Router::Url(['controller' => 'payrolls', 'action' => 'populate'], TRUE); ?>',
+            cache: false,
+            success: function(response) {
+                // console.log(response);
+                $( '#container' ).html( response );
+            }
+        });
+
+    });
+
+});
+</script>
