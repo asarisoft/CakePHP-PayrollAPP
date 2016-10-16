@@ -9,9 +9,7 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('tmt') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('job_positions_id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
@@ -19,9 +17,7 @@
         <tbody>
             <?php foreach ($users as $user): ?>
             <tr>
-                <td><?= $this->Number->format($user->id) ?></td>
                 <td><?= h($user->name) ?></td>
-                <td><?= h($user->tmt) ?></td>
                 <td><?= $user->has('job_position') ? $this->Html->link($user->job_position->name, ['controller' => 'Jobpositions', 'action' => 'view', $user->job_position->id]) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $user->id]) ?>
