@@ -34,8 +34,6 @@
 <script>
 $(document).ready(function(){
     $('#generate_button').click(function(){
-        console.log("clicked");
-
         $.ajax({
             type: 'POST',
             data:  $('#myform').serialize(),
