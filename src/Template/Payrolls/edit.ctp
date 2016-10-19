@@ -16,8 +16,13 @@
         <legend><?= __('Edit Payroll') ?></legend>
         <?php
             echo $this->Form->input('users_id', ['options' => $users]);
-            echo $this->Form->input('month');
-            echo $this->Form->input('year');
+            echo $this->Form->month('month', ['empty' => false]);
+            echo $this->Form->year('year', [
+                'minYear' => date('Y') - 1,
+                'maxYear' =>  date('Y') + 1,
+                'orderYear' => 'asc',
+                'empty'=>false,
+            ]);
             echo $this->Form->input('basic_salary');
             echo $this->Form->input('position_allowance');
             echo $this->Form->input('communication_allowance');
