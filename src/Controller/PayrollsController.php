@@ -15,8 +15,7 @@ class PayrollsController extends AppController
         $this->paginate = [
             'contain' => ['Users']
         ];
-        $payrolls = $this->paginate($this->Payrolls);
-
+        $payrolls = $this->paginate($this->Payrolls->find('all')->where(['status' => 0]));
         $this->set(compact('payrolls'));
         $this->set('_serialize', ['payrolls']);
 
@@ -29,6 +28,10 @@ class PayrollsController extends AppController
             'contain' => ['Users']
         ]);
 
+        $other_allowances = $this->Payrolls->salaryallowances->find('all', [
+            "conditions" => ['payrolls_id' => $id]]);
+        $this->set('other_allowances', $other_allowances);
+
         $this->set('payroll', $payroll);
         $this->set('_serialize', ['payroll']);
     }
@@ -37,10 +40,12 @@ class PayrollsController extends AppController
     {
         $payroll = $this->Payrolls->newEntity();
         if ($this->request->is('post')) {
-            $payroll = $this->Payrolls->patchEntity($payroll, $this->request->data, [
+            $payroll = $this->Payrolls->newEntity($this->request->data, [
                 'validate' => false,
                 'associated' => ['SalaryAllowances']
             ]);
+            $payroll->year = $this->request->data['Payrolls']['year']['year'];
+            $payroll->month = $this->request->data['Payrolls']['month']['month'];
             if ($this->Payrolls->save($payroll)) {
                 $this->Flash->success(__('The payroll has been saved.'));
                 return $this->redirect(['action' => 'index']);
@@ -60,6 +65,8 @@ class PayrollsController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $payroll = $this->Payrolls->patchEntity($payroll, $this->request->data);
+            $payroll->year = $this->request->data['year']['year'];
+            $payroll->month = $this->request->data['month']['month'];
             if ($this->Payrolls->save($payroll)) {
                 $this->Flash->success(__('The payroll has been saved.'));
 
@@ -81,6 +88,20 @@ class PayrollsController extends AppController
             $this->Flash->success(__('The payroll has been deleted.'));
         } else {
             $this->Flash->error(__('The payroll could not be deleted. Please, try again.'));
+        }
+
+        return $this->redirect(['action' => 'index']);
+    }
+
+    public function cancel($id = null)
+    {
+        $this->request->allowMethod(['post', 'cancel']);
+        $payroll = $this->Payrolls->get($id);
+        $payroll->status = 1;
+        if ($this->Payrolls->save($payroll)) {
+            $this->Flash->success(__('The payroll has been canceled.'));
+        } else {
+            $this->Flash->error(__('The payroll could not be caneled. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);
