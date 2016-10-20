@@ -89,4 +89,17 @@ class PayrollsTable extends Table
             ['errorField' => 'users_id', 'message' => 'Salary for this month is exists']);
         return $rules;
     }
+
+    // public function checkUnique($check){
+    //     $condition = array(
+    //         "User.name" => $this->data["Payr"]["name"],
+    //         "User.lastname" => $this->data["User"]["lastname"],
+    //         "User.birthday" => $this->data["User"]["birthday"]
+    //     );
+    //
+    //     $result = $this->find("count", array("conditions" => $condition));
+    //
+    //     return ($result == 0);
+    // }
+
 }

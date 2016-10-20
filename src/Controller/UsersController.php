@@ -11,7 +11,9 @@ class UsersController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Transports', 'JobPositions', 'MaritalStatuses', 'Educations']
+            'contain' => ['Transports', 'JobPositions', 'MaritalStatuses', 'Educations'],
+            'limit'=> 20
+
         ];
         $users = $this->paginate($this->Users);
 
