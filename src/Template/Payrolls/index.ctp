@@ -4,31 +4,25 @@
         <li><?= $this->Html->link(__('New Payroll'), ['action' => 'add']) ?></li>
     </ul>
 </nav>
-<div class="payrolls index large-9 medium-8 columns content">
-    <div class="filters">
-    <h3>Filters</h3>
-    <?php
-    // The base url is the url where we'll pass the filter parameters
-    $base_url = array('controller' => 'movies', 'action' => 'index');
-    echo $this->Form->create("Filter",array('url' => $base_url, 'class' => 'filter'));
-    // add a select input for each filter. It's a good idea to add a empty value and set
-    // the default option to that.
-    echo $this->Form->input("genre_id", array('label' => 'Genre', 'options' => $genres, 'empty' => '-- All genres --', 'default' => ''));
-    echo $this->Form->input("director_id", array('label' => 'Director', 'options' => $directors, 'empty' => '-- All directors --', 'default' => ''));
-    // Add a basic search
-    echo $this->Form->input("search", array('label' => 'Search', 'placeholder' => "Search..."));
 
-    echo $this->Form->submit("Valider");
-
-    // To reset all the filters we only need to redirect to the base_url
-    echo "<div class='submit actions'>";
-    echo $this->Html->link("Reset",$base_url);
-    echo "</div>";
-    echo $this->Form->end();
-    ?>
-    </div>
+<div class="payrolls form large-9 medium-8 columns content">
 
     <h3><?= __('Payrolls') ?></h3>
+    <?php
+        $base_url = ['controller' => 'payrolls', 'action' => 'index'];
+        echo $this->Form->create("Filter", ['url' => $base_url, 'type' => 'get']);
+        echo $this->Form->month('Payrolls.month', ['empty' => false]);
+        echo $this->Form->year('Payrolls.year', [
+            'minYear' => date('Y') - 1,
+            'maxYear' =>  date('Y') + 1,
+            'orderYear' => 'asc',
+            'empty'=>false,
+        ]);
+        echo $this->Form->submit("Submit");
+        echo $this->Form->end();
+    ?>
+    <br/>
+
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>

@@ -3,7 +3,6 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Routing\Router;
-// use Cake\I18n\Time;
 use Cake\I18n\Date;
 use Cake\ORM\TableRegistry;
 
@@ -13,13 +12,20 @@ class PayrollsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Users']
+            'contain' => ['Users', 'salaryallowances'],
+            'limit'=>2
         ];
-        $payrolls = $this->paginate($this->Payrolls->find('all')->where(['status' => 0]));
+
+        $query = $this->Payrolls->find();
+        if (!empty ($this->request->query("Payrolls"))) {
+            $data=$this->request->query("Payrolls");
+            $query->where(['year'=>$data['year']['year']])
+                ->where(['month' => $data['month']['month']]);
+        }
+
+        $payrolls = $this->paginate($query);
         $this->set(compact('payrolls'));
         $this->set('_serialize', ['payrolls']);
-
-        $users = TableRegistry::get('Users');
     }
 
     public function view($id = null)

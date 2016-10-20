@@ -11,7 +11,8 @@ class AllowancesController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Users']
+            'contain' => ['Users'],
+            'limit'=>20
         ];
         $allowances = $this->paginate($this->Allowances);
 
