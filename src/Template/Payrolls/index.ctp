@@ -26,7 +26,6 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('users_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('month') ?></th>
@@ -38,10 +37,9 @@
         <tbody>
             <?php foreach ($payrolls as $payroll): ?>
             <tr>
-                <td><?= $this->Number->format($payroll->id) ?></td>
                 <td><?= $payroll->has('user') ? $this->Html->link($payroll->user->name, ['controller' => 'Users', 'action' => 'view', $payroll->user->id]) : '' ?></td>
                 <td><?= h($payroll->created) ?></td>
-                <td><?= $this->Number->format($payroll->month) ?></td>
+                <td><?= date("F", mktime(0, 0, 0, $payroll->month, 10)) ?></td>
                 <td><?= $payroll->year ?></td>
                 <td><?= $payroll->status_text ?></td>
                 <td class="actions">

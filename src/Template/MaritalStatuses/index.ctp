@@ -5,7 +5,7 @@
     </ul>
 </nav>
 <div class="maritalstatuses index large-9 medium-8 columns content">
-    <h3><?= __('Maritalstatuses') ?></h3>
+    <h3><?= __('Marital Statuses') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>

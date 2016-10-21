@@ -13,7 +13,7 @@ class PayrollsController extends AppController
     {
         $this->paginate = [
             'contain' => ['Users', 'salaryallowances'],
-            'limit'=>2
+            'limit'=>35
         ];
 
         $query = $this->Payrolls->find();
@@ -34,11 +34,20 @@ class PayrollsController extends AppController
             'contain' => ['Users']
         ]);
 
+        $total = $payroll->basic_salary + $payroll->position_allowance +
+            $payroll->communicaton_allowance + $payroll->rice_allowance +
+            $payroll->education_allowance + $payroll->transport_allowance +
+            $payroll->collector_share_profit;
+
         $other_allowances = $this->Payrolls->salaryallowances->find('all', [
             "conditions" => ['payrolls_id' => $id]]);
         $this->set('other_allowances', $other_allowances);
 
-        $this->set('payroll', $payroll);
+        foreach ($other_allowances as $other_allowance) {
+            $total += $other_allowance->value;
+        }
+
+        $this->set(compact('payroll', 'total'));
         $this->set('_serialize', ['payroll']);
     }
 
@@ -47,7 +56,6 @@ class PayrollsController extends AppController
         $payroll = $this->Payrolls->newEntity();
         if ($this->request->is('post')) {
             $payroll = $this->Payrolls->newEntity($this->request->data, [
-                'validate' => false,
                 'associated' => ['SalaryAllowances']
             ]);
             $payroll->year = $this->request->data['Payrolls']['year']['year'];

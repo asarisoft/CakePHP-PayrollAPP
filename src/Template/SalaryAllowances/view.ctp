@@ -1,3 +1,4 @@
+<?= $this->Html->css('style.css', ['block' => true]); ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
@@ -11,7 +12,7 @@
 </nav>
 <div class="salaryAllowances view large-9 medium-8 columns content">
     <h3><?= h($salaryAllowance->name) ?></h3>
-    <table class="vertical-table">
+    <table class="vertical-table view-detail">
         <tr>
             <th scope="row"><?= __('Name') ?></th>
             <td><?= h($salaryAllowance->name) ?></td>
