@@ -1,0 +1,18 @@
+
+.view {
+    float: left;
+}
+
+.view-detail th {
+    width: 30%;
+}
+
+.view-detail td {
+    text-align: left;
+}
+
+.view span {
+    width: 10%;
+    text-align: right;
+    display: block;
+}
