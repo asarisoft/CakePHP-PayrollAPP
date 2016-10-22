@@ -1,28 +1,36 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
+<nav class="large-2 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Payroll'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Add Salary'), ['action' => 'add']) ?></li>
     </ul>
 </nav>
 
-<div class="payrolls form large-9 medium-8 columns content">
+<div class="payrolls form large-10 medium-8 columns content">
 
     <h3><?= __('Payrolls') ?></h3>
     <?php
-        $base_url = ['controller' => 'payrolls', 'action' => 'index'];
-        echo $this->Form->create("Filter", ['url' => $base_url, 'type' => 'get']);
-        echo $this->Form->month('Payrolls.month', ['empty' => false]);
-        echo $this->Form->year('Payrolls.year', [
-            'minYear' => date('Y') - 1,
-            'maxYear' =>  date('Y') + 1,
-            'orderYear' => 'asc',
-            'empty'=>false,
-        ]);
+        echo $this->Form->create("Filter", ['url' => ['controller' => 'payrolls', 'action' => 'index'], 'type' => 'get']);
+    ?>
+    <table>
+        <tr>
+            <td><?= $this->Form->month('Payrolls.month', ['empty' => false]); ?></td>
+            <td><?= $this->Form->year('Payrolls.year', [
+                    'minYear' => date('Y') - 1,
+                    'maxYear' =>  date('Y') + 1,
+                    'orderYear' => 'asc',
+                    'empty'=>false,
+                ]); ?>
+            </td>
+            <td><?= $this->Form->select('Payrolls.status', [0=>'Created', 1=>'Canceled'],
+                ['empty' => false] ); ?>
+            </td>
+        </tr>
+    </table>
+    <?php
         echo $this->Form->submit("Submit");
         echo $this->Form->end();
     ?>
     <br/>
-
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>

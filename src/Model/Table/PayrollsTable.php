@@ -79,8 +79,9 @@ class PayrollsTable extends Table
             ->requirePresence('collector_share_profit', 'create')
             ->notEmpty('collector_share_profit');
 
-        return $validator;
+            return $validator;
     }
+
 
     public function buildRules(RulesChecker $rules)
     {
@@ -90,16 +91,22 @@ class PayrollsTable extends Table
         return $rules;
     }
 
-    // public function checkUnique($check){
-    //     $condition = array(
-    //         "User.name" => $this->data["Payr"]["name"],
-    //         "User.lastname" => $this->data["User"]["lastname"],
-    //         "User.birthday" => $this->data["User"]["birthday"]
-    //     );
-    //
-    //     $result = $this->find("count", array("conditions" => $condition));
-    //
-    //     return ($result == 0);
-    // }
+//     public function buildRules(RulesChecker $rules)
+// {
+//     $check = function($order) {
+//         return $order->price < 100 && $order->shipping_mode === 'free';
+//     };
+//     $rules->add($check, [
+//         'errorField' => 'shipping_mode',
+//         'message' => 'No free shipping for orders under 100!'
+//     ]);
+//     return $rules;
+// }
+
+
+// Elsewhere in application code
+// $order->price = 50;
+// $order->shipping_mode = 'free';
+// $ordersTable->save($order); // Returns false
 
 }

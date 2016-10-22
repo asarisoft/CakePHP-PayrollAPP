@@ -16,4 +16,6 @@ foreach ($other_allowances as $other_allowance) {
     $i++;
 }
 
+echo $this->Form->button(__('Save'));
+
 ?>

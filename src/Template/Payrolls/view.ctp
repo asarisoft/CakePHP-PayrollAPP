@@ -1,13 +1,12 @@
 <?= $this->Html->css('style.css', ['block' => true]); ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
+<nav class="large-2 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Payrolls'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Payroll'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('Cancel'), ['action' => 'cancel', $payroll->id], ['confirm' => __('Are you sure you want to cancel # {0}?', $payroll->id)]) ?></li>
+        <li><?= $this->Html->link(__('List Salary'), ['action' => 'index']) ?> </li>
+        <li><?= $this->Form->postLink(__('Cancel'), ['action' => 'cancel', $payroll->id], ['confirm' => __('Are you sure you want to cancel # {0}?', $payroll->id)]) ?>
     </ul>
 </nav>
-<div class="payrolls view large-9 medium-8 columns content">
+<div class="payrolls view large-10 medium-8 columns content">
     <h3>#<?= h($payroll->id) ?></h3>
     <table class="vertical-table view-detail">
         <tr>

@@ -13,14 +13,15 @@ class PayrollsController extends AppController
     {
         $this->paginate = [
             'contain' => ['Users', 'salaryallowances'],
-            'limit'=>35
+            'limit'=>10
         ];
 
-        $query = $this->Payrolls->find();
+        $query = $this->Payrolls->find()->order(['Payrolls.id' =>'DESC']);
         if (!empty ($this->request->query("Payrolls"))) {
             $data=$this->request->query("Payrolls");
             $query->where(['year'=>$data['year']['year']])
-                ->where(['month' => $data['month']['month']]);
+                ->where(['month' => $data['month']['month']])
+                ->where(['status' => $data['status']]);
         }
 
         $payrolls = $this->paginate($query);
@@ -72,28 +73,6 @@ class PayrollsController extends AppController
         $this->set('_serialize', ['payroll']);
     }
 
-    public function edit($id = null)
-    {
-        $payroll = $this->Payrolls->get($id, [
-            'contain' => []
-        ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $payroll = $this->Payrolls->patchEntity($payroll, $this->request->data);
-            $payroll->year = $this->request->data['year']['year'];
-            $payroll->month = $this->request->data['month']['month'];
-            if ($this->Payrolls->save($payroll)) {
-                $this->Flash->success(__('The payroll has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
-            } else {
-                $this->Flash->error(__('The payroll could not be saved. Please, try again.'));
-            }
-        }
-        $users = $this->Payrolls->Users->find('list', ['limit' => 200]);
-        $this->set(compact('payroll', 'users'));
-        $this->set('_serialize', ['payroll']);
-    }
-
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
@@ -132,20 +111,19 @@ class PayrollsController extends AppController
             $user = $Users
                 ->find()
                 ->contain(['JobPositions', 'Educations', 'MaritalStatuses', 'Transports', 'Allowances'])
-                ->matching('Allowances')
                 ->where([
                     'Users.id' => $user_id,
                 ])->last();
 
-            $this->set('basic_salary',  $user->basic_salary);
-            $this->set('position_allowance', $user->job_position->position_allowance);
-            $this->set('communication_allowance', $user->job_position->communication_allowance);
-            $this->set('education_allowance', $user->education->education_allowance);
-            $this->set('transport_allowance', $user->transport->transport_allowance);
+            $this->set('basic_salary',  @$user->basic_salary ?: 0);
+            $this->set('position_allowance', @$user->job_position->position_allowance ?: 0);
+            $this->set('communication_allowance', @$user->job_position->communication_allowance ?: 0);
+            $this->set('education_allowance', @$user->education->education_allowance ?: 0);
+            $this->set('transport_allowance', @$user->transport->transport_allowance ?: 0);
 
             # Get Rice Allowances
-            if (date_diff(Date::now(), new Date($user->tmt))->y >= $user->marital_status->after_years) {
-                $this->set('rice_allowance', $user->marital_status->rice_allowance);
+            if (date_diff(Date::now(), new Date(@$user->tmt))->y >= @$user->marital_status->after_years) {
+                $this->set('rice_allowance', @$user->marital_status->rice_allowance ?: 0);
             } else {
                 $this->set('rice_allowance', 0);
             }
@@ -153,7 +131,7 @@ class PayrollsController extends AppController
             # Get Other Allowance
             $other_allowances = $Users->allowances->find('all', [
                 "conditions" => ['users_id' => $user_id]]);
-            $this->set('other_allowances', $other_allowances);
+            $this->set('other_allowances', @$other_allowances ?: 0);
 
             # Gate Collector Share Profit
             $this->render('ajax_response', 'ajax');
