@@ -1,0 +1,13 @@
+@media print {
+    @page {
+        size: A4;
+        margin: 1.5cm;
+    }
+
+    html, body {
+        height:100%;
+        overflow: hidden;
+        background: #FFF;
+        font-size: 11pt;
+    }
+}

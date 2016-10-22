@@ -29,7 +29,7 @@ class PayrollsController extends AppController
         $this->set('_serialize', ['payrolls']);
     }
 
-    public function view($id = null)
+    public function view($id = null, $print=false)
     {
         $payroll = $this->Payrolls->get($id, [
             'contain' => ['Users']
@@ -50,6 +50,11 @@ class PayrollsController extends AppController
 
         $this->set(compact('payroll', 'total'));
         $this->set('_serialize', ['payroll']);
+
+        if ($print) {
+            $this->viewBuilder()->layout('ajax');
+            $this->render('print');
+        }
     }
 
     public function add()
