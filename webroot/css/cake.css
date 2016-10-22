@@ -264,7 +264,6 @@ p.error {
 
 pre {
     background: none repeat scroll 0% 0% #FFF;
-    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.24);
     margin: 15px 0px;
     color: rgba(0, 0 ,0 , 0.74);
     padding:5px;

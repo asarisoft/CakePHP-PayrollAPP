@@ -16,3 +16,29 @@
     text-align: right;
     display: block;
 }
+
+.nomer {
+    width: 10%;
+    text-align: center;
+}
+
+.value {
+    text-align: right;
+    padding-right: 20px;
+}
+
+.name {
+    width: 65%;
+}
+
+pre {
+    box-shadow: 0 0 0 transparent;
+    color: black;
+    display: inline-block;
+    border: 0;
+}
+
+pre span {
+    font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+    font-size: 14px;
+}
