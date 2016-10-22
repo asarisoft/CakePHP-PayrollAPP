@@ -1,5 +1,5 @@
 <?= $this->Html->css('style.css', ['block' => true]); ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
+<nav class="large-2 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('Edit Salary Allowance'), ['action' => 'edit', $salaryAllowance->id]) ?> </li>
@@ -10,7 +10,7 @@
         <li><?= $this->Html->link(__('New Payroll'), ['controller' => 'Payrolls', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
-<div class="salaryAllowances view large-9 medium-8 columns content">
+<div class="salaryAllowances view large-10 medium-8 columns content">
     <h3><?= h($salaryAllowance->name) ?></h3>
     <table class="vertical-table view-detail">
         <tr>

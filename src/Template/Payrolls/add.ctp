@@ -1,11 +1,14 @@
 <?php use Cake\Routing\Router; ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
+
+<nav class="large-2 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Payrolls'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('List Salary'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Reset Form'), ['action' => 'add']) ?></li>
     </ul>
 </nav>
-<div class="payrolls form large-9 medium-8 columns content">
+
+<div class="payrolls form large-10 medium-8 columns content">
     <?= $this->Form->create($payroll, ['id'=>'myform']) ?>
     <fieldset>
         <legend><?= __('Add Payroll') ?></legend>
@@ -20,13 +23,11 @@
             ]);
             echo $this->Form->input('Payrolls.collector_share_profit');
         ?>
-        <div id="container"></div>
+        <div id="container">
+            <button id="generate_button" type="button" >Generate</button>
+        </div>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
-
-    <button id="generate_button" onclick="">Generate</button>
-
 </div>
 
 

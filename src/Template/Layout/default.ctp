@@ -22,20 +22,20 @@ $cakeDescription = 'BMT Amanah Payroll Application';
 </head>
 <body>
     <nav class="top-bar expanded" data-topbar role="navigation">
-        <ul class="title-area large-3 medium-4 columns">
+        <ul class="title-area large-2 medium-4 columns">
             <li class="name">
                 <h1><a href=""><?= $this->fetch('title') ?></a></h1>
             </li>
         </ul>
         <div class="top-bar-section">
             <ul class="left">
-                <li><?= $this->Html->link('Job Positions', '/jobpositions'); ?></li>
-                <li><?= $this->Html->link('Marital Statuses', '/maritalstatuses'); ?></li>
-                <li><?= $this->Html->link('Educations', '/educations'); ?></li>
-                <li><?= $this->Html->link('Transports', '/transports'); ?></li>
-                <li><?= $this->Html->link('Users', '/users'); ?></li>
-                <li><?= $this->Html->link('Other Allowances', '/allowances'); ?></li>
-                <li><?= $this->Html->link('Payrolls', '/payrolls'); ?></li>
+                <li><?= $this->Html->link('Job Position', '/jobpositions'); ?></li>
+                <li><?= $this->Html->link('Marital Status', '/maritalstatuses'); ?></li>
+                <li><?= $this->Html->link('Education', '/educations'); ?></li>
+                <li><?= $this->Html->link('Transport', '/transports'); ?></li>
+                <li><?= $this->Html->link('User', '/users'); ?></li>
+                <li><?= $this->Html->link('Other Allowance', '/allowances'); ?></li>
+                <li><?= $this->Html->link('Payroll', '/payrolls'); ?></li>
                 <?php if($loggedIn) {
                     echo "<li>".$this->Html->link('Log Out', '/users/logout', ['confirm' => __('Are you sure you want to Logout?')])."</li>";
                     // echo "lalal";

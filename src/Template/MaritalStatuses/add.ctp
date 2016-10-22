@@ -1,13 +1,13 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
+<nav class="large-2 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Maritalstatuses'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('List Marital Status'), ['action' => 'index']) ?></li>
     </ul>
 </nav>
-<div class="maritalstatuses form large-9 medium-8 columns content">
+<div class="maritalstatuses form large-10 medium-8 columns content">
     <?= $this->Form->create($maritalstatus) ?>
     <fieldset>
-        <legend><?= __('Add Maritalstatus') ?></legend>
+        <legend><?= __('Add Marital Status') ?></legend>
         <?php
             echo $this->Form->input('name');
             echo $this->Form->input('rice_allowance');
