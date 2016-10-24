@@ -22,6 +22,24 @@ class PayrollsController extends AppController
             $query->where(['year'=>$data['year']['year']])
                 ->where(['month' => $data['month']['month']])
                 ->where(['status' => $data['status']]);
+
+            if ($data['request_to_export']==1) {
+                // $this->response->download('Payroll.csv');
+                debug($query->toArray());
+
+                // $data = [
+                //     ['a', 'b', 'c'],
+                //     [1, 2, 3],
+                //     ['you', 'and', 'me'],
+                // ];
+                // $_header = ['Nama', 'Bulan', 'Tahun', 'Gaji Pokok', 'Tunjangan Jabatan', 'Tunjangan Komunikasi',
+                //             'Tunjangan Beras', 'Tunjangan Pendidikan', 'Tunjangan Transportasi'];
+                // $_serialize = 'data';
+                //
+                // $this->viewBuilder()->className('CsvView.Csv');
+                // $this->set(compact('data', '_serialize', '_header'));
+        		return;
+            }
         }
 
         $payrolls = $this->paginate($query);
@@ -141,8 +159,6 @@ class PayrollsController extends AppController
             # Gate Collector Share Profit
             $this->render('ajax_response', 'ajax');
         }
-
     }
-
 
 }

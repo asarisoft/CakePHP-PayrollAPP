@@ -3,6 +3,7 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('List Salary'), ['action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('Export'), ['action' => 'export']) ?> </li>
         <?php if ($payroll->status == 0) { ?>
             <li><?= $this->Form->postLink(__('Cancel'), ['action' => 'cancel', $payroll->id], ['confirm' => __('Are you sure you want to cancel # {0}?', $payroll->id)]) ?>
             <li><?= $this->Html->link(__('Print'), ['action' => 'view', $payroll->id, true],['target' => '_blank']) ?></li>
