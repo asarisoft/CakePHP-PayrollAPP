@@ -29,8 +29,8 @@ $cakeDescription = 'BMT Amanah Payroll Application';
         </ul>
         <div class="top-bar-section">
             <ul class="left">
-                <li><?= $this->Html->link('Job Position', '/jobpositions'); ?></li>
-                <li><?= $this->Html->link('Marital Status', '/maritalstatuses'); ?></li>
+                <li><?= $this->Html->link('Job Position', '/job-positions'); ?></li>
+                <li><?= $this->Html->link('Marital Status', '/marital-statuses'); ?></li>
                 <li><?= $this->Html->link('Education', '/educations'); ?></li>
                 <li><?= $this->Html->link('Transport', '/transports'); ?></li>
                 <li><?= $this->Html->link('User', '/users'); ?></li>

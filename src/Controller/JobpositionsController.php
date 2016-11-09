@@ -4,11 +4,11 @@ namespace App\Controller;
 use App\Controller\AppController;
 
 /**
- * Jobpositions Controller
+ * JobPositions Controller
  *
- * @property \App\Model\Table\JobpositionsTable $Jobpositions
+ * @property \App\Model\Table\JobPositionsTable $JobPositions
  */
-class JobpositionsController extends AppController
+class JobPositionsController extends AppController
 {
 
     /**
@@ -18,7 +18,7 @@ class JobpositionsController extends AppController
      */
     public function index()
     {
-        $jobpositions = $this->paginate($this->Jobpositions);
+        $jobpositions = $this->paginate($this->JobPositions);
 
         $this->set(compact('jobpositions'));
         $this->set('_serialize', ['jobpositions']);
@@ -33,7 +33,7 @@ class JobpositionsController extends AppController
      */
     public function view($id = null)
     {
-        $jobposition = $this->Jobpositions->get($id, [
+        $jobposition = $this->JobPositions->get($id, [
             'contain' => []
         ]);
 
@@ -48,10 +48,10 @@ class JobpositionsController extends AppController
      */
     public function add()
     {
-        $jobposition = $this->Jobpositions->newEntity();
+        $jobposition = $this->JobPositions->newEntity();
         if ($this->request->is('post')) {
-            $jobposition = $this->Jobpositions->patchEntity($jobposition, $this->request->data);
-            if ($this->Jobpositions->save($jobposition)) {
+            $jobposition = $this->JobPositions->patchEntity($jobposition, $this->request->data);
+            if ($this->JobPositions->save($jobposition)) {
                 $this->Flash->success(__('The jobposition has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -72,12 +72,12 @@ class JobpositionsController extends AppController
      */
     public function edit($id = null)
     {
-        $jobposition = $this->Jobpositions->get($id, [
+        $jobposition = $this->JobPositions->get($id, [
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $jobposition = $this->Jobpositions->patchEntity($jobposition, $this->request->data);
-            if ($this->Jobpositions->save($jobposition)) {
+            $jobposition = $this->JobPositions->patchEntity($jobposition, $this->request->data);
+            if ($this->JobPositions->save($jobposition)) {
                 $this->Flash->success(__('The jobposition has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -99,8 +99,8 @@ class JobpositionsController extends AppController
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $jobposition = $this->Jobpositions->get($id);
-        if ($this->Jobpositions->delete($jobposition)) {
+        $jobposition = $this->JobPositions->get($id);
+        if ($this->JobPositions->delete($jobposition)) {
             $this->Flash->success(__('The jobposition has been deleted.'));
         } else {
             $this->Flash->error(__('The jobposition could not be deleted. Please, try again.'));

@@ -7,7 +7,7 @@ class MaritalStatusesController extends AppController
 {
     public function index()
     {
-        $maritalstatuses = $this->paginate($this->Maritalstatuses);
+        $maritalstatuses = $this->paginate($this->MaritalStatuses);
 
         $this->set(compact('maritalstatuses'));
         $this->set('_serialize', ['maritalstatuses']);
@@ -15,7 +15,7 @@ class MaritalStatusesController extends AppController
 
     public function view($id = null)
     {
-        $maritalstatus = $this->Maritalstatuses->get($id, [
+        $maritalstatus = $this->MaritalStatuses->get($id, [
             'contain' => []
         ]);
 
@@ -25,10 +25,10 @@ class MaritalStatusesController extends AppController
 
     public function add()
     {
-        $maritalstatus = $this->Maritalstatuses->newEntity();
+        $maritalstatus = $this->MaritalStatuses->newEntity();
         if ($this->request->is('post')) {
-            $maritalstatus = $this->Maritalstatuses->patchEntity($maritalstatus, $this->request->data);
-            if ($this->Maritalstatuses->save($maritalstatus)) {
+            $maritalstatus = $this->MaritalStatuses->patchEntity($maritalstatus, $this->request->data);
+            if ($this->MaritalStatuses->save($maritalstatus)) {
                 $this->Flash->success(__('The maritalstatus has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -42,12 +42,12 @@ class MaritalStatusesController extends AppController
 
     public function edit($id = null)
     {
-        $maritalstatus = $this->Maritalstatuses->get($id, [
+        $maritalstatus = $this->MaritalStatuses->get($id, [
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $maritalstatus = $this->Maritalstatuses->patchEntity($maritalstatus, $this->request->data);
-            if ($this->Maritalstatuses->save($maritalstatus)) {
+            $maritalstatus = $this->MaritalStatuses->patchEntity($maritalstatus, $this->request->data);
+            if ($this->MaritalStatuses->save($maritalstatus)) {
                 $this->Flash->success(__('The maritalstatus has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -62,8 +62,8 @@ class MaritalStatusesController extends AppController
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $maritalstatus = $this->Maritalstatuses->get($id);
-        if ($this->Maritalstatuses->delete($maritalstatus)) {
+        $maritalstatus = $this->MaritalStatuses->get($id);
+        if ($this->MaritalStatuses->delete($maritalstatus)) {
             $this->Flash->success(__('The maritalstatus has been deleted.'));
         } else {
             $this->Flash->error(__('The maritalstatus could not be deleted. Please, try again.'));
