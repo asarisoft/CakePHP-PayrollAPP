@@ -90,8 +90,13 @@ class UsersController extends AppController
     }
 
 
-    public function login()
-    {   
+    public function login() {   
+        
+        // this will ignore to render default layout
+        $this->viewBuilder()->autoLayout(false);
+
+        // this will change default.ctp be advanced.ctp
+        // $this->viewBuilder()->layout('advanced');
 
         if (isset($this->Auth) && $this->Auth->user()){
             return $this->redirect($this->Auth->redirectUrl());
@@ -102,9 +107,15 @@ class UsersController extends AppController
             if ($user) {
                $this->Auth->setUser($user);
                return $this->redirect($this->Auth->redirectUrl());
+            } else {
+                $this->Flash->error(__('Username or password is incorrect'), [
+                    'key' => 'auth'
+                ]); 
             }
-            $this->Flash->error(__('Invalid username or password, try again'));
         }
+
+        // This will render Other view in users template
+        $this -> render('login2');
    }
 
    public function logout()
