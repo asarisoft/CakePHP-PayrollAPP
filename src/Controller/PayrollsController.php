@@ -66,6 +66,7 @@ class PayrollsController extends AppController
             ]);
             $payroll->year = $this->request->data['Payrolls']['year']['year'];
             $payroll->month = $this->request->data['Payrolls']['month']['month'];
+            $payroll->status = 0;
             if ($this->Payrolls->save($payroll)) {
                 $this->Flash->success(__('The payroll has been saved.'));
                 return $this->redirect(['action' => 'index']);

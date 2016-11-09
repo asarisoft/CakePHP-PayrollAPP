@@ -86,27 +86,8 @@ class PayrollsTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->existsIn(['users_id'], 'Users'));
-        $rules->add($rules->isUnique(['users_id', "month", "year"]),
+        $rules->add($rules->isUnique(['users_id', "month", "year", "status"]),
             ['errorField' => 'users_id', 'message' => "User salary for this month is already exist."]);
         return $rules;
     }
-
-//     public function buildRules(RulesChecker $rules)
-// {
-//     $check = function($order) {
-//         return $order->price < 100 && $order->shipping_mode === 'free';
-//     };
-//     $rules->add($check, [
-//         'errorField' => 'shipping_mode',
-//         'message' => 'No free shipping for orders under 100!'
-//     ]);
-//     return $rules;
-// }
-
-
-// Elsewhere in application code
-// $order->price = 50;
-// $order->shipping_mode = 'free';
-// $ordersTable->save($order); // Returns false
-
 }
