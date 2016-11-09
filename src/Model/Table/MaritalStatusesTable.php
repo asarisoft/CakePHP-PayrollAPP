@@ -30,7 +30,7 @@ class MaritalStatusesTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('maritalstatuses');
+        $this->table('marital_statuses');
         $this->displayField('name');
         $this->primaryKey('id');
     }

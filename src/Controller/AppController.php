@@ -15,7 +15,7 @@ class AppController extends Controller
         $this->loadComponent('Flash');
         $this->loadComponent('Auth', [
             'loginRedirect' => [
-                'controller' => 'Users',
+                'controller' => 'JobPositions',
                 'action' => 'index'
             ],
             'logoutRedirect' => [
@@ -34,6 +34,9 @@ class AppController extends Controller
             $this->set('_serialize', true);
         }
 
-        $this->set('loggedIn', $this->Auth->user());
+        $this->set('loggedIn', false);
+        if (isset($this->Auth) && $this->Auth->user()){
+            $this->set('loggedIn', $this->Auth->user());
+        }
     }
 }

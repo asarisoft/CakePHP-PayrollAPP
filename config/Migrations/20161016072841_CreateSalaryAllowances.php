@@ -5,7 +5,7 @@ class CreateSalaryAllowances extends AbstractMigration
 {
     public function change()
     {
-        $table = $this->table('salary_awlloances');
+        $table = $this->table('salary_allowances');
         $table->addColumn('name', 'string', [
             'default' => null,
             'limit' => 255,
