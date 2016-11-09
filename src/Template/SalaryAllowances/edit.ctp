@@ -12,7 +12,7 @@
         <li><?= $this->Html->link(__('New Payroll'), ['controller' => 'Payrolls', 'action' => 'add']) ?></li>
     </ul>
 </nav>
-<div class="salaryAllowances form large-10 medium-8 columns content">
+<div class="salaryAllowances form large-7 medium-8 columns content float-left">
     <?= $this->Form->create($salaryAllowance) ?>
     <fieldset>
         <legend><?= __('Edit Salary Allowance') ?></legend>

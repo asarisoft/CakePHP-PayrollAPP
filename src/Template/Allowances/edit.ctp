@@ -10,7 +10,7 @@
         <li><?= $this->Html->link(__('List Allowances'), ['action' => 'index']) ?></li>
     </ul>
 </nav>
-<div class="allowances form large-10 medium-8 columns content">
+<div class="allowances form large-7 medium-8 columns content float-left">
     <?= $this->Form->create($allowance) ?>
     <fieldset>
         <legend><?= __('Edit Allowance') ?></legend>

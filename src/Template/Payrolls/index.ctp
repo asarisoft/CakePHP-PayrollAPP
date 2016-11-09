@@ -5,12 +5,14 @@
     </ul>
 </nav>
 
-<div class="payrolls form large-10 medium-8 columns content">
+<div class="payrolls index large-10 medium-8 columns content">
 
     <h3><?= __('Payrolls') ?></h3>
     <?php
         echo $this->Form->create("Filter", ['url' => ['controller' => 'payrolls', 'action' => 'index'], 'type' => 'get']);
     ?>
+
+    <div class="payrolls form large-10 medium-5">
     <table>
         <tr>
             <td><?= $this->Form->month('Payrolls.month', ['empty' => false]); ?></td>
@@ -27,12 +29,16 @@
             <td><?= $this->Form->select('Payrolls.request_to_export', [0=>'View', 1=>'Exported'],
                 ['empty' => false] ); ?>
             </td>
+            <td class="table-button">
+                <?php
+                    echo $this->Form->button(__('Submit'), ["class"=>"small-button"]);
+                    echo $this->Form->end();
+                ?>      
+            </td>
         </tr>
     </table>
-    <?php
-        echo $this->Form->submit("Submit");
-        echo $this->Form->end();
-    ?>
+    </div>
+
     <br/>
     <table cellpadding="0" cellspacing="0">
         <thead>

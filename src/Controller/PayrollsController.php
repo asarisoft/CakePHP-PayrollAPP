@@ -24,8 +24,8 @@ class PayrollsController extends AppController
                 ->where(['status' => $data['status']]);
 
             if ($data['request_to_export']==1) {
-                // $this->response->download('Payroll.csv');
-                debug($query->toArray());
+                $this->response->download('Payroll.csv');
+                // debug($query->toArray());
 
                 // $data = [
                 //     ['a', 'b', 'c'],
@@ -84,6 +84,7 @@ class PayrollsController extends AppController
             ]);
             $payroll->year = $this->request->data['Payrolls']['year']['year'];
             $payroll->month = $this->request->data['Payrolls']['month']['month'];
+            $payroll->status = 0;
             if ($this->Payrolls->save($payroll)) {
                 $this->Flash->success(__('The payroll has been saved.'));
                 return $this->redirect(['action' => 'index']);
@@ -91,7 +92,9 @@ class PayrollsController extends AppController
                 $this->Flash->error(__('The payroll could not be saved. Please, try again.'));
             }
         }
-        $users = $this->Payrolls->Users->find('list', ['limit' => 200]);
+        $users = $this->Payrolls->Users->find('list')
+            ->where(['username !=' => 'admin', 'is_active !=' => 0]);
+
         $this->set(compact('payroll', 'users'));
         $this->set('_serialize', ['payroll']);
     }

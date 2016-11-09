@@ -32,6 +32,20 @@ class UsersController extends AppController
         $this->set('_serialize', ['user']);
     }
 
+    public function deactivate($id = null)
+    {
+        $this->request->allowMethod(['post', 'cancel']);
+        $user = $this->Users->get($id);
+        $user->is_active = 0;
+        if ($this->Users->save($user)) {
+            $this->Flash->success(__('The Users has been deactivated.'));
+        } else {
+            $this->Flash->error(__('The Users could not be deactivated. Please, try again.'));
+        }
+
+        return $this->redirect(['action' => 'index']);
+    }
+
     public function add()
     {
         $user = $this->Users->newEntity();
@@ -90,16 +104,32 @@ class UsersController extends AppController
     }
 
 
-    public function login()
-    {
-       if ($this->request->is('post')) {
+    public function login() {   
+        
+        // this will ignore to render default layout
+        $this->viewBuilder()->autoLayout(false);
+
+        // this will change default.ctp be advanced.ctp
+        // $this->viewBuilder()->layout('advanced');
+
+        if (isset($this->Auth) && $this->Auth->user()){
+            return $this->redirect($this->Auth->redirectUrl());
+        }
+
+        if ($this->request->is('post')) {
            $user = $this->Auth->identify();
-           if ($user) {
+            if ($user) {
                $this->Auth->setUser($user);
                return $this->redirect($this->Auth->redirectUrl());
-           }
-           $this->Flash->error(__('Invalid username or password, try again'));
-       }
+            } else {
+                $this->Flash->error(__('Username or password is incorrect'), [
+                    'key' => 'auth'
+                ]); 
+            }
+        }
+
+        // This will render Other view in users template
+        $this -> render('login2');
    }
 
    public function logout()
