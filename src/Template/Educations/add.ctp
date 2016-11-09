@@ -4,7 +4,7 @@
         <li><?= $this->Html->link(__('List Education'), ['action' => 'index']) ?></li>
     </ul>
 </nav>
-<div class="educations form large-10 medium-8 columns content">
+<div class="educations form large-7 medium-8 columns content float-left">
     <?= $this->Form->create($education) ?>
     <fieldset>
         <legend><?= __('Add Education') ?></legend>

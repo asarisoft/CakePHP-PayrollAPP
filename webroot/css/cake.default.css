@@ -84,7 +84,7 @@ legend {
     white-space: nowrap;
     display: inline-block;
     padding: 0.25rem 0.5rem 0.375rem;
-    font-size: 0.95rem;
+    font-size: 0.8rem;
     background-color: #0097a7;
     color: #FFF;
     border-radius: 1000px;
@@ -146,13 +146,13 @@ button {
 
 .form .error-message {
     display: block;
-    padding: 0rem 1rem 0.5625rem;
-    margin-top: -7px;
+    padding: 0.375rem 0.5625rem 0.5625rem;
+    margin-top: -1px;
     margin-bottom: 1rem;
-    font-size: 0.89rem;
+    font-size: 0.75rem;
     font-weight: normal;
     font-style: italic;
-    color: rgb(241, 15, 15);
+    color: rgba(0, 0, 0, 0.54);
 }
 
 .required > label {
@@ -391,7 +391,7 @@ pre {
 
 .side-nav li.heading {
     color: #1798A5;
-    font-size: 0.95rem;
+    font-size: 0.875rem;
     font-weight: bold;
     text-transform: uppercase;
     padding: 0.4375rem 0.875rem;
@@ -427,10 +427,8 @@ table thead tr {
 }
 
 table tr th {
-    font-size: 0.95rem;
-    padding: 8px 8px;
-
-    font-size: 1rem;
+    padding: 0.5625rem 0.625rem;
+    font-size: 0.875rem;
     color: #1798A5;
     text-align: left;
     border-bottom: 2px solid #1798A5;
@@ -519,7 +517,7 @@ div.message.hidden {
 
 .vertical-table th {
     padding: 0.5625rem 0.625rem;
-    font-size: 0.87rem;
+    font-size: 0.875rem;
     color: #1798A5;
     border: none;
     text-align: left;
@@ -544,12 +542,11 @@ div.message.hidden {
 }
 
 /* Force equal height by overflowing */
-/*.content,
+.content,
 #actions-sidebar {
     margin-bottom: -99999px;
     padding-bottom: 99999px;
 }
-*/
 @media(max-width: 640px) {
     #actions-sidebar {
         padding-bottom: 2rem;
@@ -576,22 +573,4 @@ div.message.hidden {
     margin-top: 20px;
     margin-bottom: 10px;
     border-bottom: 0px;
-}
-
-.float-left {
-    float: left!important;
-}
-
-.small-button {
-    padding: 12px 18px;
-    margin: 0;
-}
-
-.table-button {
-    width: 15%;
-    padding: 0 25px 16px 0;
-}
-
-select {
-    font-size: 1rem
 }

@@ -10,7 +10,7 @@
         <li><?= $this->Html->link(__('List Marital Status'), ['action' => 'index']) ?></li>
     </ul>
 </nav>
-<div class="maritalstatuses form large-10 medium-8 columns content">
+<div class="maritalstatuses form large-7 medium-8 columns content float-left">
     <?= $this->Form->create($maritalstatus) ?>
     <fieldset>
         <legend><?= __('Edit Marital Status') ?></legend>

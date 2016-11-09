@@ -10,7 +10,7 @@
         <li><?= $this->Html->link(__('List Users'), ['action' => 'index']) ?></li>
     </ul>
 </nav>
-<div class="users form large-10 medium-8 columns content">
+<div class="users form large-7 medium-8 columns content float-left">
     <?= $this->Form->create($user) ?>
     <fieldset>
         <legend><?= __('Edit User') ?></legend>

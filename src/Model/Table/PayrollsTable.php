@@ -79,15 +79,15 @@ class PayrollsTable extends Table
             ->requirePresence('collector_share_profit', 'create')
             ->notEmpty('collector_share_profit');
 
-            return $validator;
+        return $validator;
     }
 
 
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->existsIn(['users_id'], 'Users'));
-        $rules->add($rules->isUnique(['users_id', "month", "year", "status"]),
-            ['errorField' => 'users_id', 'message' => "User salary for this month is already exist."]);
+        $rules->add($rules->isUnique(["month", "year", "status", 'users_id']),
+            ['errorField' => 'month', 'message' => "User salary for this month is already exist."]);
         return $rules;
     }
 }

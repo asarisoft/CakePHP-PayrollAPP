@@ -74,7 +74,9 @@ class PayrollsController extends AppController
                 $this->Flash->error(__('The payroll could not be saved. Please, try again.'));
             }
         }
-        $users = $this->Payrolls->Users->find('list', ['limit' => 200]);
+        $users = $this->Payrolls->Users->find('list')
+            ->where(['username !=' => 'admin', 'is_active !=' => 0]);
+
         $this->set(compact('payroll', 'users'));
         $this->set('_serialize', ['payroll']);
     }

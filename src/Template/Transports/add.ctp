@@ -4,7 +4,7 @@
         <li><?= $this->Html->link(__('List Transport'), ['action' => 'index']) ?></li>
     </ul>
 </nav>
-<div class="transports form large-10 medium-8 columns content">
+<div class="transports form large-7 medium-8 columns content float-left">
     <?= $this->Form->create($transport) ?>
     <fieldset>
         <legend><?= __('Add Transport') ?></legend>
