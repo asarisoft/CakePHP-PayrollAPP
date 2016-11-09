@@ -11,6 +11,7 @@
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('job_positions_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('is_active') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -19,10 +20,11 @@
             <tr>
                 <td><?= h($user->name) ?></td>
                 <td><?= $user->has('job_position') ? $this->Html->link($user->job_position->name, ['controller' => 'Jobpositions', 'action' => 'view', $user->job_position->id]) : '' ?></td>
+                <td><?php if($user->is_active) { echo h("Active"); } else { echo h ("Non Active");} ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $user->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?>
+                    <?= $this->Form->postLink(__('Deactivate'), ['action' => 'deactivate', $user->id], ['confirm' => __('Are you sure you want to deactivate # {0}?', $user->name)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

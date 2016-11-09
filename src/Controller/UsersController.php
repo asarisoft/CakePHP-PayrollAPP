@@ -32,6 +32,20 @@ class UsersController extends AppController
         $this->set('_serialize', ['user']);
     }
 
+    public function deactivate($id = null)
+    {
+        $this->request->allowMethod(['post', 'cancel']);
+        $user = $this->Users->get($id);
+        $user->is_active = 0;
+        if ($this->Users->save($user)) {
+            $this->Flash->success(__('The Users has been deactivated.'));
+        } else {
+            $this->Flash->error(__('The Users could not be deactivated. Please, try again.'));
+        }
+
+        return $this->redirect(['action' => 'index']);
+    }
+
     public function add()
     {
         $user = $this->Users->newEntity();

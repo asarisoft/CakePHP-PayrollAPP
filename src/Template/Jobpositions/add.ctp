@@ -4,7 +4,7 @@
         <li><?= $this->Html->link(__('List Job Position'), ['action' => 'index']) ?></li>
     </ul>
 </nav>
-<div class="jobpositions form large-10 medium-8 columns content">
+<div class="payrolls form large-7 medium-8 columns content float-left float-left">
     <?= $this->Form->create($jobposition) ?>
     <fieldset>
         <legend><?= __('Add Jobposition') ?></legend>
@@ -17,3 +17,4 @@
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
 </div>
+
