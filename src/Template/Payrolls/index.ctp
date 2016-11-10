@@ -26,7 +26,7 @@
             <td><?= $this->Form->select('Payrolls.status', [0=>'Created', 1=>'Canceled'],
                 ['empty' => false] ); ?>
             </td>
-            <td><?= $this->Form->select('Payrolls.request_to_export', [0=>'View', 1=>'Exported'],
+            <td><?= $this->Form->select('Payrolls.request_to_export', [0=>'View', 1=>'Download'],
                 ['empty' => false] ); ?>
             </td>
             <td class="table-button">

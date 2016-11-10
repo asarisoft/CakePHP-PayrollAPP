@@ -23,29 +23,47 @@ class PayrollsController extends AppController
                 ->where(['month' => $data['month']['month']])
                 ->where(['status' => $data['status']]);
 
-            debug($query->contain(['Users'])->toArray());
-
             if ($data['request_to_export']==1) {
                 $this->response->download('Payroll.csv');
-                $data = [];
-                $_header = ['Nama', 'Bulan', 'Tahun', 'Gaji Pokok', 'Tunjangan Jabatan', 'Tunjangan Komunikasi',
-                            'Tunjangan Beras', 'Tunjangan Pendidikan', 'Tunjangan Transportasi'];
+                $_header = ['Nama', 'Bulan', 'Tahun', 'Gaji Pokok', 'Tunjangan Jabatan', 
+                            'Tunjangan Komunikasi','Tunjangan Beras', 'Tunjangan Pendidikan', 
+                            'Tunjangan Transportasi', 'Bagi Hasil Kolektor'];
 
+                // Add Header With Other ALlowances
+                $SalaryAllowances = TableRegistry::get('SalaryAllowances');
+                $salaryAllowancesName = $SalaryAllowances->find(
+                    'list', ['select'=> 'name', 'order' => ['name' => 'ASC']]);
+                $_header = array_merge($_header, array_unique($salaryAllowancesName->toArray()));
 
-                $data = $query->toArray();
-                $_serialize = 'data';
-                $_footer = ['Totals', '400', '$3000'];
+                // Get Payroll Data
+                $payroll_data = $query->contain(['Users', 'salaryallowances'])->toArray();
+                $content=[];
 
-                $this->viewBuilder()->className('CsvView.Csv');
-                $this->set(compact('data', '_serialize', '_header', '_footer'));
+                foreach ($payroll_data as $payroll) {
+                    $row = [
+                        $payroll['user']['name'], $payroll['month'], $payroll['year'], 
+                        $payroll['basic_salary'], $payroll['position_allowance'],
+                        $payroll['communication_allowance'], $payroll['rice_allowance'], 
+                        $payroll['education_allowance'], $payroll['transport_allowance'],
+                        $payroll['transport_allowance']
+                    ];
 
-                // $data = $this->Payrolls->find('all')->toArray();
-                // $_serialize = 'data';
-                // $_header = ['ID', 'Name', 'Email'];
+                    // try to add 0, in rest off index row 
+                    $row = array_merge($row, array_fill(0, count($_header) - count($row), 0));
+
+                    // Add SalaryAllowances to row
+                    foreach ($payroll['salaryallowances'] as $allowance) {
+                        $row[array_search($allowance['name'], $_header)] =  $allowance['value'];
+                    }
+
+                    array_push($content, $row);
+                }
+                $_serialize = 'content';
+                // if need footer
                 // $_footer = ['Totals', '400', '$3000'];
 
-                // $this->viewBuilder()->className('CsvView.Csv');
-                // $this->set(compact('data', '_serialize', '_header', '_footer'));
+                $this->viewBuilder()->className('CsvView.Csv');
+                $this->set(compact('content', '_serialize', '_header'));
                 return;
             }
         }

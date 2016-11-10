@@ -43,7 +43,8 @@ class AllowancesController extends AppController
                 $this->Flash->error(__('The allowance could not be saved. Please, try again.'));
             }
         }
-        $users = $this->Allowances->Users->find('list', ['limit' => 200]);
+        $users = $this->Allowances->Users->find('list')
+            ->where(['username !=' => 'admin', 'is_active !=' => 0]);
         $this->set(compact('allowance', 'users'));
         $this->set('_serialize', ['allowance']);
     }
