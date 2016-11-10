@@ -23,22 +23,30 @@ class PayrollsController extends AppController
                 ->where(['month' => $data['month']['month']])
                 ->where(['status' => $data['status']]);
 
+            debug($query->contain(['Users'])->toArray());
+
             if ($data['request_to_export']==1) {
                 $this->response->download('Payroll.csv');
-                // debug($query->toArray());
+                $data = [];
+                $_header = ['Nama', 'Bulan', 'Tahun', 'Gaji Pokok', 'Tunjangan Jabatan', 'Tunjangan Komunikasi',
+                            'Tunjangan Beras', 'Tunjangan Pendidikan', 'Tunjangan Transportasi'];
 
-                // $data = [
-                //     ['a', 'b', 'c'],
-                //     [1, 2, 3],
-                //     ['you', 'and', 'me'],
-                // ];
-                // $_header = ['Nama', 'Bulan', 'Tahun', 'Gaji Pokok', 'Tunjangan Jabatan', 'Tunjangan Komunikasi',
-                //             'Tunjangan Beras', 'Tunjangan Pendidikan', 'Tunjangan Transportasi'];
+
+                $data = $query->toArray();
+                $_serialize = 'data';
+                $_footer = ['Totals', '400', '$3000'];
+
+                $this->viewBuilder()->className('CsvView.Csv');
+                $this->set(compact('data', '_serialize', '_header', '_footer'));
+
+                // $data = $this->Payrolls->find('all')->toArray();
                 // $_serialize = 'data';
-                //
+                // $_header = ['ID', 'Name', 'Email'];
+                // $_footer = ['Totals', '400', '$3000'];
+
                 // $this->viewBuilder()->className('CsvView.Csv');
-                // $this->set(compact('data', '_serialize', '_header'));
-        		return;
+                // $this->set(compact('data', '_serialize', '_header', '_footer'));
+                return;
             }
         }
 
