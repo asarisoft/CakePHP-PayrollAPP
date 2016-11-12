@@ -23,7 +23,7 @@
                 'orderYear' => 'asc',
                 'empty'=>false,
             ]);
-            echo $this->Form->input('Payrolls.collector_share_profit');
+            echo $this->Form->input('Payrolls.collector_share_profit', ['default'=>0]);
         ?>
         <div id="container"></div>
     </fieldset>
