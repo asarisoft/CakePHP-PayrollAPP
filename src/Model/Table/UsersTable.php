@@ -34,8 +34,13 @@ class UsersTable extends Table
             'joinType' => 'INNER'
         ]);
         $this->hasMany('Allowances', [
-            'foreignKey' => 'id',
+            'foreignKey' => 'users_id',
             'dependent' => true,
+        ]);
+        $this->belongsToMany('Bpjs', [
+            'foreignKey' => 'users_id',
+            'targetForeignKey' => 'bpjs_id',
+            'joinTable' => 'users_bpjs'
         ]);
     }
 

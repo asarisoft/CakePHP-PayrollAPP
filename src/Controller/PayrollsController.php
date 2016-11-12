@@ -162,7 +162,8 @@ class PayrollsController extends AppController
             # Get Basic Salary
             $user = $Users
                 ->find()
-                ->contain(['JobPositions', 'Educations', 'MaritalStatuses', 'Transports', 'Allowances'])
+                ->contain(['JobPositions', 'Educations', 'MaritalStatuses', 'Transports', 
+                           'Allowances', 'Bpjs'])
                 ->where([
                     'Users.id' => $user_id,
                 ])->last();
@@ -180,12 +181,12 @@ class PayrollsController extends AppController
                 $this->set('rice_allowance', 0);
             }
 
-            # Get Other Allowance
-            $other_allowances = $Users->allowances->find('all', [
-                "conditions" => ['users_id' => $user_id]]);
-            $this->set('other_allowances', @$other_allowances ?: 0);
+            # Get BPJS Allowances
+            $this->set('bpjs_allowances', $user['bpjs']);
 
-            # Gate Collector Share Profit
+            # Get Other Allowance
+            $this->set('other_allowances', $user['allowances']);
+
             $this->render('ajax_response', 'ajax');
         }
     }
