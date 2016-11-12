@@ -44,7 +44,8 @@ class AllowancesTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->existsIn(['users_id'], 'Users'));
-
+        $rules->add($rules->isUnique(["users_id", "name"]),
+            ['errorField' => 'name', 'message' => "User already has this allowance."]);
         return $rules;
     }
 }

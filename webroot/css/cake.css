@@ -146,7 +146,7 @@ button {
 .form .error-message {
     display: block;
     padding: 0rem 1rem 0.5625rem;
-    margin-top: -7px;
+    margin-top: 2px;
     margin-bottom: 1rem;
     font-size: 0.89rem;
     font-weight: normal;
