@@ -2,9 +2,18 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
+
 
 class MaritalStatusesController extends AppController
 {
+
+    public function beforeRender(Event $event)
+    {
+        parent::beforeRender($event);
+        $this->set('title', 'Status Perkawinan');
+    }
+
     public function index()
     {
         $maritalstatuses = $this->paginate($this->MaritalStatuses);
@@ -29,11 +38,11 @@ class MaritalStatusesController extends AppController
         if ($this->request->is('post')) {
             $maritalstatus = $this->MaritalStatuses->patchEntity($maritalstatus, $this->request->data);
             if ($this->MaritalStatuses->save($maritalstatus)) {
-                $this->Flash->success(__('The maritalstatus has been saved.'));
+                $this->setSuccesMessage('succes-save');
 
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The maritalstatus could not be saved. Please, try again.'));
+                $this->setErrorMessage('failed-save');
             }
         }
         $this->set(compact('maritalstatus'));
@@ -48,11 +57,11 @@ class MaritalStatusesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $maritalstatus = $this->MaritalStatuses->patchEntity($maritalstatus, $this->request->data);
             if ($this->MaritalStatuses->save($maritalstatus)) {
-                $this->Flash->success(__('The maritalstatus has been saved.'));
+                $this->setSuccesMessage('succes-save');
 
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The maritalstatus could not be saved. Please, try again.'));
+                $this->setErrorMessage('failed-save');
             }
         }
         $this->set(compact('maritalstatus'));
@@ -64,9 +73,9 @@ class MaritalStatusesController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $maritalstatus = $this->MaritalStatuses->get($id);
         if ($this->MaritalStatuses->delete($maritalstatus)) {
-            $this->Flash->success(__('The maritalstatus has been deleted.'));
+            $this->setSuccesMessage('succes-delete');
         } else {
-            $this->Flash->error(__('The maritalstatus could not be deleted. Please, try again.'));
+            $this->setErrorMessage('failed-delete');
         }
 
         return $this->redirect(['action' => 'index']);

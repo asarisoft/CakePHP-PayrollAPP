@@ -2,20 +2,17 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
-/**
- * Transports Controller
- *
- * @property \App\Model\Table\TransportsTable $Transports
- */
 class TransportsController extends AppController
 {
 
-    /**
-     * Index method
-     *
-     * @return \Cake\Network\Response|null
-     */
+    public function beforeRender(Event $event)
+    {
+        parent::beforeRender($event);
+        $this->set('title', 'Transportasi');
+    }
+
     public function index()
     {
         $transports = $this->paginate($this->Transports);
@@ -24,13 +21,6 @@ class TransportsController extends AppController
         $this->set('_serialize', ['transports']);
     }
 
-    /**
-     * View method
-     *
-     * @param string|null $id Transport id.
-     * @return \Cake\Network\Response|null
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
     public function view($id = null)
     {
         $transport = $this->Transports->get($id, [
@@ -41,35 +31,23 @@ class TransportsController extends AppController
         $this->set('_serialize', ['transport']);
     }
 
-    /**
-     * Add method
-     *
-     * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
-     */
     public function add()
     {
         $transport = $this->Transports->newEntity();
         if ($this->request->is('post')) {
             $transport = $this->Transports->patchEntity($transport, $this->request->data);
             if ($this->Transports->save($transport)) {
-                $this->Flash->success(__('The transport has been saved.'));
+                $this->setSuccesMessage('succes-save');
 
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The transport could not be saved. Please, try again.'));
+               $this->setErrorMessage('failed-save');
             }
         }
         $this->set(compact('transport'));
         $this->set('_serialize', ['transport']);
     }
 
-    /**
-     * Edit method
-     *
-     * @param string|null $id Transport id.
-     * @return \Cake\Network\Response|void Redirects on successful edit, renders view otherwise.
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
     public function edit($id = null)
     {
         $transport = $this->Transports->get($id, [
@@ -78,32 +56,25 @@ class TransportsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $transport = $this->Transports->patchEntity($transport, $this->request->data);
             if ($this->Transports->save($transport)) {
-                $this->Flash->success(__('The transport has been saved.'));
+                $this->setSuccesMessage('succes-save');
 
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The transport could not be saved. Please, try again.'));
+               $this->setErrorMessage('failed-save');
             }
         }
         $this->set(compact('transport'));
         $this->set('_serialize', ['transport']);
     }
 
-    /**
-     * Delete method
-     *
-     * @param string|null $id Transport id.
-     * @return \Cake\Network\Response|null Redirects to index.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
         $transport = $this->Transports->get($id);
         if ($this->Transports->delete($transport)) {
-            $this->Flash->success(__('The transport has been deleted.'));
+            $this->setSuccesMessage('succes-delete');
         } else {
-            $this->Flash->error(__('The transport could not be deleted. Please, try again.'));
+            $this->setErrorMessage('failed-delete');
         }
 
         return $this->redirect(['action' => 'index']);

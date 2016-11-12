@@ -55,7 +55,6 @@ legend {
 .index table {
     margin-top: 2rem;
     border: 0;
-    width: 100%;
     table-layout: fixed;
 }
 
@@ -593,4 +592,8 @@ div.message.hidden {
 
 select {
     font-size: 1rem
+}
+
+.colon {
+    width: 10%;
 }

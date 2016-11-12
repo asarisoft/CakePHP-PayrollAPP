@@ -1,7 +1,7 @@
 <?= $this->Html->css('style.css', ['block' => true]); ?>
 <nav class="large-2 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
+        <li class="heading"><?= __('Menu :') ?></li>
         <li><?= $this->Html->link(__('Edit Salary Allowance'), ['action' => 'edit', $salaryAllowance->id]) ?> </li>
         <li><?= $this->Form->postLink(__('Delete Salary Allowance'), ['action' => 'delete', $salaryAllowance->id], ['confirm' => __('Are you sure you want to delete # {0}?', $salaryAllowance->id)]) ?> </li>
         <li><?= $this->Html->link(__('List Salary Allowances'), ['action' => 'index']) ?> </li>

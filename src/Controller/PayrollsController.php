@@ -5,9 +5,16 @@ use App\Controller\AppController;
 use Cake\Routing\Router;
 use Cake\I18n\Date;
 use Cake\ORM\TableRegistry;
+use Cake\Event\Event;
 
 class PayrollsController extends AppController
 {
+
+    public function beforeRender(Event $event)
+    {
+        parent::beforeRender($event);
+        $this->set('title', 'Daftar Gaji');
+    }
 
     public function index()
     {
@@ -112,10 +119,11 @@ class PayrollsController extends AppController
             $payroll->month = $this->request->data['Payrolls']['month']['month'];
             $payroll->status = 0;
             if ($this->Payrolls->save($payroll)) {
-                $this->Flash->success(__('The payroll has been saved.'));
+                $this->setSuccesMessage('succes-save');
                 return $this->redirect(['action' => 'index']);
+
             } else {
-                $this->Flash->error(__('The payroll could not be saved. Please, try again.'));
+                $this->setErrorMessage('failed-save');
             }
         }
         $users = $this->Payrolls->Users->find('list')
@@ -130,9 +138,9 @@ class PayrollsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $payroll = $this->Payrolls->get($id);
         if ($this->Payrolls->delete($payroll)) {
-            $this->Flash->success(__('The payroll has been deleted.'));
+            $this->setSuccesMessage('succes-delete');
         } else {
-            $this->Flash->error(__('The payroll could not be deleted. Please, try again.'));
+            $this->setErrorMessage('failed-delete');
         }
 
         return $this->redirect(['action' => 'index']);
@@ -144,9 +152,9 @@ class PayrollsController extends AppController
         $payroll = $this->Payrolls->get($id);
         $payroll->status = 1;
         if ($this->Payrolls->save($payroll)) {
-            $this->Flash->success(__('The payroll has been canceled.'));
+            $this->Flash->success(__('Data gaji sudah di-cancel.'));
         } else {
-            $this->Flash->error(__('The payroll could not be caneled. Please, try again.'));
+            $this->Flash->error(__('Gagal cancel data gaji. Silahkan coba lagi.'));
         }
 
         return $this->redirect(['action' => 'index']);

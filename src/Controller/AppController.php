@@ -34,4 +34,28 @@ class AppController extends Controller
             $this->set('_serialize', true);
         }
     }
+
+    public function setSuccesMessage($type="", $message="") {
+        $message = $message;
+        if ($type == "succes-save") {
+            $message = "Data Berhasil Disimpan";
+        } elseif ($type == "succes-delete") {
+            $message = "Data telah dihapus.";
+        } 
+
+        $this->Flash->success(__($message));
+    }
+
+    public function setErrorMEssage($type="", $message="") {
+        $message = $message;
+        if ($type == "failed-save") {
+            $message = "Gagal menyimpan data, silahkan coba lagi";
+        } elseif ($type == "failed-delete") {
+            $message = "Gagal menghapus data, silahkan coba lagi.";
+        }
+        
+        $this->Flash->error(__($message));
+    }
+
+
 }

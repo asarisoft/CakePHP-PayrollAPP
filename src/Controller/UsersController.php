@@ -6,7 +6,13 @@ use Cake\Event\Event;
 
 
 class UsersController extends AppController
-{
+{   
+
+    public function beforeRender(Event $event)
+    {
+        parent::beforeRender($event);
+        $this->set('title', 'Pegawai');
+    }
 
     public function index()
     {
@@ -38,9 +44,9 @@ class UsersController extends AppController
         $user = $this->Users->get($id);
         $user->is_active = 0;
         if ($this->Users->save($user)) {
-            $this->Flash->success(__('The Users has been deactivated.'));
+            $this->Flash->success(__('Pegawai telah dinonaktifkan.'));
         } else {
-            $this->Flash->error(__('The Users could not be deactivated. Please, try again.'));
+            $this->Flash->error(__('Gagal menonaktifkan pegawai, silahkan coba lagi.'));
         }
 
         return $this->redirect(['action' => 'index']);
@@ -52,11 +58,11 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
+                $this->setSuccesMessage('succes-save');
 
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The user could not be saved. Please, try again.'));
+               $this->setErrorMessage('failed-save');
             }
         }
         $transports = $this->Users->Transports->find('list', ['limit' => 200]);
@@ -75,11 +81,11 @@ class UsersController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
+                $this->setSuccesMessage('succes-save');
 
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The user could not be saved. Please, try again.'));
+               $this->setErrorMessage('failed-save');
             }
         }
         $transports = $this->Users->Transports->find('list', ['limit' => 200]);
@@ -90,18 +96,18 @@ class UsersController extends AppController
         $this->set('_serialize', ['user']);
     }
 
-    public function delete($id = null)
-    {
-        $this->request->allowMethod(['post', 'delete']);
-        $user = $this->Users->get($id);
-        if ($this->Users->delete($user)) {
-            $this->Flash->success(__('The user has been deleted.'));
-        } else {
-            $this->Flash->error(__('The user could not be deleted. Please, try again.'));
-        }
+    // public function delete($id = null)
+    // {
+    //     $this->request->allowMethod(['post', 'delete']);
+    //     $user = $this->Users->get($id);
+    //     if ($this->Users->delete($user)) {
+    //         $this->Flash->success(__('The user has been deleted.'));
+    //     } else {
+    //         $this->Flash->error(__('The user could not be deleted. Please, try again.'));
+    //     }
 
-        return $this->redirect(['action' => 'index']);
-    }
+    //     return $this->redirect(['action' => 'index']);
+    // }
 
 
     public function login() {   
@@ -122,7 +128,7 @@ class UsersController extends AppController
                $this->Auth->setUser($user);
                return $this->redirect($this->Auth->redirectUrl());
             } else {
-                $this->Flash->error(__('Username or password is incorrect'), [
+                $this->Flash->error(__('Username dan password salah'), [
                     'key' => 'auth'
                 ]); 
             }

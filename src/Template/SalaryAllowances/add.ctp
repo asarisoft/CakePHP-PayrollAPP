@@ -1,6 +1,6 @@
 <nav class="large-2 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
+        <li class="heading"><?= __('Menu :') ?></li>
         <li><?= $this->Html->link(__('List Salary Allowances'), ['action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('List Payrolls'), ['controller' => 'Payrolls', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Payroll'), ['controller' => 'Payrolls', 'action' => 'add']) ?></li>
@@ -16,6 +16,6 @@
             echo $this->Form->input('payrolls_id', ['options' => $payrolls]);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Simpan')) ?>
     <?= $this->Form->end() ?>
 </div>

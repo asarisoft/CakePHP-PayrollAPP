@@ -1,25 +1,19 @@
 <nav class="large-2 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $allowance->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $allowance->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Allowances'), ['action' => 'index']) ?></li>
+        <li class="heading"><?= __('Menu :') ?></li>
+        <li><?= $this->Html->link(__('Daftar Tunjangan'), ['action' => 'index']) ?></li>
     </ul>
 </nav>
 <div class="allowances form large-7 medium-8 columns content float-left">
     <?= $this->Form->create($allowance) ?>
     <fieldset>
-        <legend><?= __('Edit Allowance') ?></legend>
+        <legend><?= __('Edit Tunjangan') ?></legend>
         <?php
-            echo $this->Form->input('users_id', ['options' => $users]);
-            echo $this->Form->input('name');
-            echo $this->Form->input('value');
+            echo $this->Form->input('users_id', ['options' => $users, "label"=>"Pegawai"]);
+            echo $this->Form->input('name', ["label"=>"Tunjangan"]);
+            echo $this->Form->input('value', ["label"=>"Nominal"]);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Simpan')) ?>
     <?= $this->Form->end() ?>
 </div>

@@ -37,9 +37,9 @@ class Payroll extends Entity
     protected function _getStatusText()
     {
         if ($this->_properties['status'] == 0) {
-            return "Created";
+            return "Dibuat";
         }
-        return "Canceled";
+        return "Di-Cancel";
     }
 
 }

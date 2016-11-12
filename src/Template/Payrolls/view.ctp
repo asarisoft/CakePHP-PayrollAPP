@@ -1,75 +1,79 @@
 <?= $this->Html->css('style.css', ['block' => true]); ?>
 <nav class="large-2 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Salary'), ['action' => 'index']) ?> </li>
+        <li class="heading"><?= __('Menu :') ?></li>
         <?php if ($payroll->status == 0) { ?>
-            <li><?= $this->Form->postLink(__('Cancel'), ['action' => 'cancel', $payroll->id], ['confirm' => __('Are you sure you want to cancel # {0}?', $payroll->id)]) ?>
-            <li><?= $this->Html->link(__('Print'), ['action' => 'view', $payroll->id, true],['target' => '_blank']) ?></li>
+            <li><?= $this->Form->postLink(__('Batalkan'), ['action' => 'cancel', $payroll->id], 
+                ['confirm' => __('Yakin Untuk Membatalkan Gaji # {0}?', $payroll->id)]) ?>
+            <li><?= $this->Html->link(__('Cetak'), ['action' => 'view', $payroll->id, true],
+                ['target' => '_blank']) ?></li>
         <?php } ?>
+        <li><?= $this->Html->link(__('Daftar Gaji'), ['action' => 'index']) ?> </li>
     </ul>
 </nav>
 <div class="payrolls view large-10 medium-8 columns content">
-    <h3>#<?= h($payroll->id) ?></h3>
-    <table class="vertical-table view-detail">
+    <h3><?= h($payroll->user->name 
+        ." (".date("F", mktime(0, 0, 0, $payroll->month, 10))." "
+        .$payroll->year.")") ?></h3>
+    
+    <table class="vertical-table view-detail large-5">
         <tr>
-            <th scope="row"><?= __('User') ?></th>
-            <td><?= $payroll->has('user') ? $this->Html->link($payroll->user->name, ['controller' => 'Users', 'action' => 'view', $payroll->user->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Month') ?></th>
-            <td><?= date("F", mktime(0, 0, 0, $payroll->month, 10)) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Year') ?></th>
-            <td><?= $payroll->year ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Created') ?></th>
+            <th scope="row"><?= __('Dibuat Tgl.') ?></th>
+            <td class="colon">:</td>
             <td><?= h($payroll->created) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Status') ?></th>
+            <td class="colon">:</td>
             <td><?= h($payroll->status_text) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Basic Salary') ?></th>
+            <th scope="row"><?= __('Gaji Pokok') ?></th>
+            <td class="colon">:</td>
             <td><span><?= $this->Number->format($payroll->basic_salary) ?></span></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Position Allowance') ?></th>
+            <th scope="row"><?= __('Tunjangan Jabatan') ?></th>
+            <td class="colon">:</td>
             <td><span><?= $this->Number->format($payroll->position_allowance) ?></span></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Communication Allowance') ?></th>
+            <th scope="row"><?= __('Tunjangan Komunikasi') ?></th>
+            <td class="colon">:</td>
             <td><span><?= $this->Number->format($payroll->communication_allowance) ?></span></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Rice Allowance') ?></th>
+            <th scope="row"><?= __('Tunjangan Beras') ?></th>
+            <td class="colon">:</td>
             <td><span><?= $this->Number->format($payroll->rice_allowance) ?></span></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Education Allowance') ?></th>
+            <th scope="row"><?= __('Tunjangan Pendidikan') ?></th>
+            <td class="colon">:</td>
             <td><span><?= $this->Number->format($payroll->education_allowance) ?></span></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Transport Allowance') ?></th>
+            <th scope="row"><?= __('Tunjangan Transportasi') ?></th>
+            <td class="colon">:</td>
             <td><span><?= $this->Number->format($payroll->transport_allowance) ?></span></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Collector Share Profit') ?></th>
+            <th scope="row"><?= __('Bagi Hasil Kolektor') ?></th>
+            <td class="colon">:</td>
             <td><span><?= $this->Number->format($payroll->collector_share_profit) ?></span></td>
         </tr>
         <?php foreach ($other_allowances as $other_allowance) { ?>
         <tr>
             <th scope="row"><?= __($other_allowance->name) ?></th>
+            <td class="colon">:</td>
             <td><span><?= $this->Number->format($other_allowance->value) ?></span></td>
         </tr>
         <?php }?>
 
         <tr>
-            <th scope="row"><?= __("Total Salary") ?></th>
-            <td><span><?= $this->Number->format($total) ?></span></td>
+            <th scope="row"><?= __("Total Gaji") ?></th>
+            <td class="colon">:</td>
+            <td><span><strong><?= $this->Number->format($total) ?></strong></span></td>
         </tr>
     </table>
 </div>

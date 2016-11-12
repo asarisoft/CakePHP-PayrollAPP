@@ -22,9 +22,9 @@ $cakeDescription = 'BMT Amanah Payroll Application';
 		<div class="users form large-12 columns content">
 			<?= $this->Form->create() ?>
 			    <fieldset>
-			        <legend><?= __('Please Login') ?></legend>
-			        <?= $this->Form->input('username') ?>
-			        <?= $this->Form->input('password') ?>
+			        <legend><?= __('Silahkan Login') ?></legend>
+			        <?= $this->Form->input('username', ["label"=>"Id Pegawai"]) ?>
+			        <?= $this->Form->input('password', ["label"=>"Password"]) ?>
 			    </fieldset>
 			<?= $this->Form->button(__('Login')); ?>
 			<?= $this->Form->end() ?>

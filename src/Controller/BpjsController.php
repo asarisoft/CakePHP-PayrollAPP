@@ -38,11 +38,11 @@ class BpjsController extends AppController
         if ($this->request->is('post')) {
             $bpj = $this->Bpjs->patchEntity($bpj, $this->request->data);
             if ($this->Bpjs->save($bpj)) {
-                $this->Flash->success(__('The bpj has been saved.'));
+                $this->setSuccesMessage('succes-save');
 
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The bpj could not be saved. Please, try again.'));
+               $this->setErrorMessage('failed-save');
             }
         }
         $users = $this->Bpjs->Users->find('list')
@@ -60,11 +60,11 @@ class BpjsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $bpj = $this->Bpjs->patchEntity($bpj, $this->request->data);
             if ($this->Bpjs->save($bpj)) {
-                $this->Flash->success(__('The bpj has been saved.'));
+                $this->setSuccesMessage('succes-save');
 
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The bpj could not be saved. Please, try again.'));
+               $this->setErrorMessage('failed-save');
             }
         }
         $users = $this->Bpjs->Users->find('list')
@@ -78,9 +78,9 @@ class BpjsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $bpj = $this->Bpjs->get($id);
         if ($this->Bpjs->delete($bpj)) {
-            $this->Flash->success(__('The bpj has been deleted.'));
+            $this->setSuccesMessage('succes-delete');
         } else {
-            $this->Flash->error(__('The bpj could not be deleted. Please, try again.'));
+            $this->setErrorMessage('failed-delete');
         }
 
         return $this->redirect(['action' => 'index']);

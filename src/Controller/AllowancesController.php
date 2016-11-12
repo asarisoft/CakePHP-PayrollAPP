@@ -8,6 +8,12 @@ use Cake\Event\Event;
 class AllowancesController extends AppController
 {
 
+    public function beforeRender(Event $event)
+    {
+        parent::beforeRender($event);
+        $this->set('title', 'Tunjangan Lain-lain');
+    }
+
     public function index()
     {
         $this->paginate = [
@@ -36,11 +42,11 @@ class AllowancesController extends AppController
         if ($this->request->is('post')) {
             $allowance = $this->Allowances->patchEntity($allowance, $this->request->data);
             if ($this->Allowances->save($allowance)) {
-                $this->Flash->success(__('The allowance has been saved.'));
+                $this->setSuccesMessage('succes-save');
 
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The allowance could not be saved. Please, try again.'));
+               $this->setErrorMessage('failed-save');
             }
         }
         $users = $this->Allowances->Users->find('list')
@@ -57,11 +63,11 @@ class AllowancesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $allowance = $this->Allowances->patchEntity($allowance, $this->request->data);
             if ($this->Allowances->save($allowance)) {
-                $this->Flash->success(__('The allowance has been saved.'));
+                $this->setSuccesMessage('succes-save');
 
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The allowance could not be saved. Please, try again.'));
+               $this->setErrorMessage('failed-save');
             }
         }
         $users = $this->Allowances->Users->find('list', ['limit' => 200]);
@@ -74,9 +80,9 @@ class AllowancesController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $allowance = $this->Allowances->get($id);
         if ($this->Allowances->delete($allowance)) {
-            $this->Flash->success(__('The allowance has been deleted.'));
+            $this->setSuccesMessage('succes-delete');
         } else {
-            $this->Flash->error(__('The allowance could not be deleted. Please, try again.'));
+            $this->setErrorMessage('failed-delete');
         }
 
         return $this->redirect(['action' => 'index']);
