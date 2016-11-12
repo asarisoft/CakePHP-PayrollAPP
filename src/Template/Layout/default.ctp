@@ -18,7 +18,7 @@ $cakeDescription = 'BMT Amanah Payroll Application';
     <nav class="top-bar expanded" data-topbar role="navigation">
         <ul class="title-area large-2 medium-4 columns">
             <li class="name">
-                <h1><a href=""><?= $this->fetch('title') ?></a></h1>
+                <h1><a href=""><?= $title ?></a></h1>
             </li>
         </ul>
         <div class="top-bar-section">
@@ -28,12 +28,10 @@ $cakeDescription = 'BMT Amanah Payroll Application';
                 <li><?= $this->Html->link('Education', '/educations'); ?></li>
                 <li><?= $this->Html->link('Transport', '/transports'); ?></li>
                 <li><?= $this->Html->link('User', '/users'); ?></li>
+                <li><?= $this->Html->link('BPJS', '/bpjs'); ?></li>
                 <li><?= $this->Html->link('Other Allowance', '/allowances'); ?></li>
                 <li><?= $this->Html->link('Payroll', '/payrolls'); ?></li>
-                <?php if($loggedIn) {
-                    echo "<li>".$this->Html->link('Log Out', '/users/logout', ['confirm' => __('Are you sure you want to Logout?')])."</li>";
-                    // echo "lalal";
-                }?>
+                <li><?= $this->Html->link('Log Out', '/users/logout', ['confirm' => __('Are you sure you want to Logout?')]) ?></li>;
             </ul>
         </div>
     </nav>
