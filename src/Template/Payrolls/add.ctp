@@ -3,8 +3,7 @@
 <nav class="large-2 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Salary'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Reset Form'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List'), ['action' => 'index']) ?></li>
     </ul>
 </nav>
 
@@ -13,7 +12,7 @@
     <fieldset>
         <legend><?= __('Add Payroll') ?></legend>
         <?php
-            echo $this->Form->input('Payrolls.users_id', ['options' => $users]);
+            echo $this->Form->input('Payrolls.users_id', ['options' => $users, 'empty' => "-- Select User --"]);
             echo $this->Form->month('Payrolls.month', ['empty' => false]);
             if ($this->Form->isFieldError('month')) {
                 echo $this->Form->error('month');
@@ -37,6 +36,9 @@
 $(document).ready(function(){
     $('#payrolls-users-id').change(function() {
         $( '#container' ).html('');
+
+        if (this.value == ""){ return; }
+
         $.ajax({
             type: 'POST',
             data:  $('#myform').serialize(),

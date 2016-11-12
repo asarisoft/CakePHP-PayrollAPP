@@ -87,7 +87,7 @@ class PayrollsTable extends Table
     {
         $rules->add($rules->existsIn(['users_id'], 'Users'));
         $rules->add($rules->isUnique(["month", "year", "status", 'users_id']),
-            ['errorField' => 'month', 'message' => "User salary for this month is already exist."]);
+            ['errorField' => 'users_id', 'message' => "User has paid for this month."]);
         return $rules;
     }
 }
