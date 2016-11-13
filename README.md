@@ -1,12 +1,13 @@
 # BMT Amanah Payroll Application
 
-## Installation
+## Information
 Project start from 5 Oktober s.d 10 November 2016
 Using CakePHP 3.3
 
-## Installation For Windows Using XAMPp
+## Installation For Windows Using XAMPP
 
 1. Download XAMPP with PHP versiion is higher 5.4 and not greater than 7
+    https://www.apachefriends.org/download.html
 2. Install xampp 
 3. Read and edit php.ini 'C:/xampp/php/php.ini' and uncomment ;extensionsintl => intl
 4. Open Xampp Controll Panel from StartWindows
