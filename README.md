@@ -1,25 +1,23 @@
-# CakePHP Application Skeleton
-
-[![Build Status](https://img.shields.io/travis/cakephp/app/master.svg?style=flat-square)](https://travis-ci.org/cakephp/app)
-[![License](https://img.shields.io/packagist/l/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
-
-A skeleton for creating applications with [CakePHP](http://cakephp.org) 3.x.
-
-The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
+# BMT Amanah Payroll Application
 
 ## Installation
+Project start from 5 Oktober s.d 10 November 2016
+Using CakePHP 3.3
 
-1. Download [Composer](http://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
-2. Run `php composer.phar create-project --prefer-dist cakephp/app [app_name]`.
+## Installation For Windows Using XAMPp
 
-If Composer is installed globally, run
-```bash
-composer create-project --prefer-dist cakephp/app [app_name]
-```
-
-You should now be able to visit the path to where you installed the app and see the default home page.
-
-## Configuration
-
-Read and edit `config/app.php` and setup the 'Datasources' and any other
-configuration relevant for your application.
+1. Download XAMPP with PHP versiion is higher 5.4 and not greater than 7
+2. Install xampp 
+3. Read and edit php.ini 'C:/xampp/php/php.ini' and uncomment ;extensionsintl => intl
+4. Open Xampp Controll Panel from StartWindows
+5. Activate Apache and Mysql
+6. Open WebBrowser (Chrome/Mozilla) and go to 'http://localhost/phpmyadmin'
+7. Create Database 'bmt_Penggajian"
+8. Copy This Project Folder to (C:/xampp/htdocs) and rename folder be ("bmt-pengggajian")
+9. Add "C:/xampp/php" to environment variable in control panel windows
+10. Open CMD
+11. change directori in cmd to : "C:/xampp/htdocs/bmt-penggajian/bin"
+12. Run 'cake migrations migrate'
+13. Run 'Cake migrations seeds'
+14. Open Webbrowser and go to "http://localhost/bmt-penggajian"
+15. Login with username = admin password = 'november2016'
