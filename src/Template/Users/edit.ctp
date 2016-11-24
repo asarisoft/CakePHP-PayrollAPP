@@ -19,8 +19,16 @@
                                     ['options' => $maritalStatuses, "label"=>"Status Perkawinan"]);
             echo $this->Form->input('educations_id', 
                                     ['options' => $educations, "label"=>"Pendidikan"]);
+            echo $this->Form->input('no_rekening', ["label"=>"Nomer Rekening", "type"=>"number"]);
             echo $this->Form->input('basic_salary', ["label"=>"Gaji Pokok"]);
+            echo $this->Form->input('tunjangan_kompetensi', ["label"=>"Tunjangan Kompetensi", "default"=>0]);
             echo $this->Form->input('is_active', ["label"=>"Aktif"]);
+            echo $this->Form->input(
+                'privileges',
+                ['options' => $privileges, 'default' => '3', 'label'=>'Hak Akses']
+            );
+            echo $this->Form->input('username', ["label"=>"Username"]);
+            echo $this->Form->input('password', ["label"=>"Password"]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Simpan')) ?>

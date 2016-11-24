@@ -11,7 +11,9 @@ class UsersController extends AppController
     public function beforeRender(Event $event)
     {
         parent::beforeRender($event);
+        $privileges = array(1 => 'Administrator', 2=>'Manager', 3 => 'Pegawai');
         $this->set('title', 'Pegawai');
+        $this->set('privileges', $privileges);
     }
 
     public function index()
@@ -69,7 +71,8 @@ class UsersController extends AppController
         $jobPositions = $this->Users->JobPositions->find('list', ['limit' => 200]);
         $maritalStatuses = $this->Users->MaritalStatuses->find('list', ['limit' => 200]);
         $educations = $this->Users->Educations->find('list', ['limit' => 200]);
-        $this->set(compact('user', 'transports', 'jobPositions', 'maritalStatuses', 'educations'));
+        $this->set(compact('user', 'transports', 'jobPositions', 'maritalStatuses', 
+                   'educations'));
         $this->set('_serialize', ['user']);
     }
 

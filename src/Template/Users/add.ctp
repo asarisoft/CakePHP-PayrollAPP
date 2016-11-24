@@ -19,9 +19,14 @@
                                     ['options' => $maritalStatuses, "label"=>"Status Perkawinan"]);
             echo $this->Form->input('educations_id', 
                                     ['options' => $educations, "label"=>"Pendidikan"]);
+            echo $this->Form->input('no_rekening', ["label"=>"Nomer Rekening", "type"=>"number"]);
             echo $this->Form->input('basic_salary', ["label"=>"Gaji Pokok"]);
+            echo $this->Form->input('tunjangan_kompetensi', ["label"=>"Tunjangan Kompetensi", "default"=>0]);
             echo $this->Form->input('is_active', ["label"=>"Aktif"]);
-            echo $this->Form->input('is_admin', ["onclick"=>"set_form();", "label"=>"Administrator"]);
+            echo $this->Form->input(
+                'privileges',
+                ['options' => $privileges, 'default' => '3', 'label'=>'Hak Akses']
+            );
             echo $this->Form->input('username', ["label"=>"Username"]);
             echo $this->Form->input('password', ["label"=>"Password"]);
         ?>
@@ -29,22 +34,3 @@
     <?= $this->Form->button(__('Simpan')) ?>
     <?= $this->Form->end() ?>
 </div>
-
-<?php echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'); ?>
-<script>
-    $(window).ready(function () {
-      set_form();
-
-      $(document).on('change', '#is-admin', function(e){
-          set_form();
-      });
-
-      function set_form() {
-          if (document.getElementById('is-admin').checked) {
-              $('div.password').show();
-          } else {
-              $('div.password').hide();
-          }
-      };
-    });
-</script>

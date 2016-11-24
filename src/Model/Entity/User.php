@@ -21,4 +21,16 @@ class User extends Entity
     {
         return (new DefaultPasswordHasher)->hash($password);
     }
+
+
+    protected function _getPrivilegesText()
+    {
+        if ($this->_properties['privileges'] == 1) {
+            return "Administrator";
+        }
+        elseif ($this->_properties['privileges'] == 2) {
+            return "Manager";
+        }
+        return "Pegawai";
+    }
 }

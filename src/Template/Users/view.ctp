@@ -9,7 +9,7 @@
 </nav>
 <div class="users view large-10 medium-8 columns content">
     <h3><?= h($user->name) ?></h3>
-    <table class="vertical-table view-detail large-4">
+    <table class="vertical-table view-detail large-5">
         <tr>
             <th scope="row"><?= __('Transportasi') ?></th>
             <td class="colon">:</td>
@@ -36,14 +36,29 @@
             <td><?= $user->has('education') ? $this->Html->link($user->education->name, ['controller' => 'Educations', 'action' => 'view', $user->education->id]) : '' ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Nomer Rekening') ?></th>
+            <td class="colon">:</td>
+            <td><?=  $user->no_rekening; ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Gaji Pokok') ?></th>
             <td class="colon">:</td>
             <td><?= $this->Number->format($user->basic_salary) ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Tunjangan Kompetensi') ?></th>
+            <td class="colon">:</td>
+            <td><?= $this->Number->format($user->tunjangan_kompetensi) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Status') ?></th>
             <td class="colon">:</td>
             <td><?php if($user->is_active) { echo h("Active"); } else { echo h ("Non Active");} ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Hak Akses') ?></th>
+            <td class="colon">:</td>
+            <td><?=  $user->PrivilegesText; ?></td>
         </tr>
     </table>
 </div>

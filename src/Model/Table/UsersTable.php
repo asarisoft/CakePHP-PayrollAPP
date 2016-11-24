@@ -60,6 +60,11 @@ class UsersTable extends Table
             ->notEmpty('tmt');
 
         $validator
+            ->numeric('no_rekening')
+            ->requirePresence('no_rekening', 'create')
+            ->notEmpty('no_rekening');
+
+        $validator
             ->numeric('basic_salary')
             ->requirePresence('basic_salary', 'create')
             ->notEmpty('basic_salary');
