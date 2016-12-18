@@ -11,7 +11,7 @@ class MaritalStatusesController extends AppController
     public function beforeRender(Event $event)
     {
         parent::beforeRender($event);
-        $this->set('title', 'Status Perkawinan');
+        $this->set('title', 'Status');
     }
 
     public function index()

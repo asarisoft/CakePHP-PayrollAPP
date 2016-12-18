@@ -5,11 +5,11 @@
     </ul>
 </nav>
 <div class="allowances index large-10 medium-8 columns content">
-    <h3><?= __('Tunjangan Lain-lain') ?></h3>
+    <h3><?= __('Tambahan Gaji') ?></h3>
     <table cellpadding="0" cellspacing="0" class="large-8">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('name', ["label"=>"Tunjangan"]) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('name', ["label"=>"Nama Tambahan"]) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('users_id', ["label"=>"Pegawai"]) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('value', ["label"=>"Nominal"]) ?></th>
             </tr>
