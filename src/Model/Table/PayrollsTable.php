@@ -74,11 +74,6 @@ class PayrollsTable extends Table
             ->requirePresence('transport_allowance', 'create')
             ->notEmpty('transport_allowance');
 
-        $validator
-            ->numeric('collector_share_profit')
-            ->requirePresence('collector_share_profit', 'create')
-            ->notEmpty('collector_share_profit');
-
         return $validator;
     }
 

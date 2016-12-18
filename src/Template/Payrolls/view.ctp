@@ -57,11 +57,6 @@
             <td class="colon">:</td>
             <td><span><?= $this->Number->format($payroll->transport_allowance) ?></span></td>
         </tr>
-        <tr>
-            <th scope="row"><?= __('Bagi Hasil Kolektor') ?></th>
-            <td class="colon">:</td>
-            <td><span><?= $this->Number->format($payroll->collector_share_profit) ?></span></td>
-        </tr>
         <?php foreach ($other_allowances as $other_allowance) { ?>
         <tr>
             <th scope="row"><?= __($other_allowance->name) ?></th>

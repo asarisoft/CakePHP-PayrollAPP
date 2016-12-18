@@ -1,17 +1,17 @@
 <?php
 
 echo $this->Form->input('Payrolls.basic_salary', [
-	'default'=>$basic_salary, 'readonly'=>'readonly']);
+	'default'=>$basic_salary, 'readonly'=>'readonly', "label" => "Gaji Pokok"]);
 echo $this->Form->input('Payrolls.position_allowance', [
-	'default'=>$position_allowance, 'readonly'=>'readonly']);
+	'default'=>$position_allowance, 'readonly'=>'readonly', "label" => "Tunjangan Jabatan"]);
 echo $this->Form->input('Payrolls.communication_allowance', [
-	'default'=>$communication_allowance, 'readonly'=>'readonly']);
+	'default'=>$communication_allowance, 'readonly'=>'readonly', "label" => "Tunjangan Komunikasi"]);
 echo $this->Form->input('Payrolls.rice_allowance', [
-	'default'=>$rice_allowance, 'readonly'=>'readonly']);
+	'default'=>$rice_allowance, 'readonly'=>'readonly', "label" => "Tunjangan Beras"]);
 echo $this->Form->input('Payrolls.education_allowance',  [
-	'default'=>$education_allowance, 'readonly'=>'readonly']);
+	'default'=>$education_allowance, 'readonly'=>'readonly', "label" => "Tunjangan Pendidikan"]);
 echo $this->Form->input('Payrolls.transport_allowance',  [
-	'default'=>$transport_allowance, 'readonly'=>'readonly']);
+	'default'=>$transport_allowance, 'readonly'=>'readonly', "label" => "Tunjangan Transportasi"]);
 
 
 
@@ -32,6 +32,15 @@ foreach ($other_allowances as $other_allowance) {
     $i++;
 }
 
-echo $this->Form->button(__('Save'));
+
+// echo $deductions;
+foreach ($deductions as $deduction) {
+    echo $this->Form->input('Payrolls.deductions.'.$i.'.payrolls_id',  ['default'=>$deduction->name, 'type'=>'hidden']);
+    echo $this->Form->input('Payrolls.deductions.'.$i.'.name',  ['default'=>$deduction->name, 'type'=>'hidden']);
+    echo $this->Form->input('Payrolls.deductions.'.$i.'.value',  ['default'=>$deduction->value, 'label'=>$deduction->name, 'readonly'=>'readonly']);
+    $i++;
+}
+
+echo $this->Form->button(__('Simpan'));
 
 ?>

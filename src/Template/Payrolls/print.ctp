@@ -91,12 +91,6 @@
                 </tr>
                 <?php $i++; }?>
                 <tr>
-                    <td class="nomer"><?= $i+1 ?></td>
-                    <td class="name">Bagi Hasil Sebagai Kolektor</td>
-                    <td>Rp. </td>
-                    <td class="value"><?= $this->Number->format($payroll->collector_share_profit) ?></td>
-                </tr>
-                <tr>
                     <th></th>
                     <th></th>
                     <th></th>

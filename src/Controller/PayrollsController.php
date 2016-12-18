@@ -45,7 +45,6 @@ class PayrollsController extends AppController
                 // Get Payroll Data
                 $payroll_data = $query->contain(['Users', 'salaryallowances'])->toArray();
                 $content=[];
-
                 foreach ($payroll_data as $payroll) {
                     $row = [
                         $payroll['user']['name'], $payroll['month'], $payroll['year'], 
@@ -171,7 +170,7 @@ class PayrollsController extends AppController
             $user = $Users
                 ->find()
                 ->contain(['JobPositions', 'Educations', 'MaritalStatuses', 'Transports', 
-                           'Allowances', 'Bpjs'])
+                           'Allowances', 'Bpjs', "Deductions"])
                 ->where([
                     'Users.id' => $user_id,
                 ])->last();
@@ -194,6 +193,9 @@ class PayrollsController extends AppController
 
             # Get Other Allowance
             $this->set('other_allowances', $user['allowances']);
+
+            # Get Deductions
+            $this->set('deductions', $user['deductions']);
 
             $this->render('ajax_response', 'ajax');
         }
