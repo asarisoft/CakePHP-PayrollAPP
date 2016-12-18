@@ -1,16 +1,16 @@
 <nav class="large-2 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Menu :') ?></li>
-        <li><?= $this->Html->link(__('Daftar Tunjangan'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Daftar Tambahan'), ['action' => 'index']) ?></li>
     </ul>
 </nav>
 <div class="allowances form large-7 medium-8 columns content float-left">
     <?= $this->Form->create($allowance) ?>
     <fieldset>
-        <legend><?= __('Add Allowance') ?></legend>
+        <legend><?= __('Tambah Data') ?></legend>
         <?php
             echo $this->Form->input('users_id', ['options' => $users, "label"=>"Pegawai"]);
-            echo $this->Form->input('name', ["label"=>"Tunjangan"]);
+            echo $this->Form->input('name', ["label"=>"Nama Tambahan"]);
             echo $this->Form->input('value', ["label"=>"Nominal"]);
         ?>
     </fieldset>

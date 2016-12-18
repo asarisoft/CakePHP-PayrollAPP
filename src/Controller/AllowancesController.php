@@ -11,7 +11,7 @@ class AllowancesController extends AppController
     public function beforeRender(Event $event)
     {
         parent::beforeRender($event);
-        $this->set('title', 'Tunjangan Lain-lain');
+        $this->set('title', 'Tambahan Gaji');
     }
 
     public function index()
@@ -70,7 +70,8 @@ class AllowancesController extends AppController
                $this->setErrorMessage('failed-save');
             }
         }
-        $users = $this->Allowances->Users->find('list', ['limit' => 200]);
+        $users = $this->Allowances->Users->find('list')
+            ->where(['username !=' => 'admin', 'is_active !=' => 0]);
         $this->set(compact('allowance', 'users'));
         $this->set('_serialize', ['allowance']);
     }
