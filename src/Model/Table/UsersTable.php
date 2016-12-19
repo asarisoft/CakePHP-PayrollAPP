@@ -37,6 +37,10 @@ class UsersTable extends Table
             'foreignKey' => 'users_id',
             'dependent' => true,
         ]);
+        $this->hasMany('Deductions', [
+            'foreignKey' => 'users_id',
+            'dependent' => true,
+        ]);
         $this->belongsToMany('Bpjs', [
             'foreignKey' => 'users_id',
             'targetForeignKey' => 'bpjs_id',

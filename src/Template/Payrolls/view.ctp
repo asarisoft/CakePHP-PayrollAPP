@@ -57,16 +57,23 @@
             <td class="colon">:</td>
             <td><span><?= $this->Number->format($payroll->transport_allowance) ?></span></td>
         </tr>
-        <tr>
-            <th scope="row"><?= __('Bagi Hasil Kolektor') ?></th>
-            <td class="colon">:</td>
-            <td><span><?= $this->Number->format($payroll->collector_share_profit) ?></span></td>
-        </tr>
         <?php foreach ($other_allowances as $other_allowance) { ?>
         <tr>
             <th scope="row"><?= __($other_allowance->name) ?></th>
             <td class="colon">:</td>
             <td><span><?= $this->Number->format($other_allowance->value) ?></span></td>
+        </tr>
+        <?php }?>
+
+        <tr>
+            <th scope="row" colspan="3">Potongan</th>
+        </tr>
+
+        <?php foreach ($salary_deductions as $salary_deduction) { ?>
+        <tr class="deductions">
+            <th scope="row"><?= __($salary_deduction->name) ?></th>
+            <td class="colon">:</td>
+            <td><span><?= $this->Number->format($salary_deduction->value) ?></span></td>
         </tr>
         <?php }?>
 

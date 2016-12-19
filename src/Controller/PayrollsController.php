@@ -45,7 +45,6 @@ class PayrollsController extends AppController
                 // Get Payroll Data
                 $payroll_data = $query->contain(['Users', 'salaryallowances'])->toArray();
                 $content=[];
-
                 foreach ($payroll_data as $payroll) {
                     $row = [
                         $payroll['user']['name'], $payroll['month'], $payroll['year'], 
@@ -87,16 +86,21 @@ class PayrollsController extends AppController
         ]);
 
         $total = $payroll->basic_salary + $payroll->position_allowance +
-            $payroll->communicaton_allowance + $payroll->rice_allowance +
-            $payroll->education_allowance + $payroll->transport_allowance +
-            $payroll->collector_share_profit;
+            $payroll->communication_allowance + $payroll->rice_allowance +
+            $payroll->education_allowance + $payroll->transport_allowance;
 
         $other_allowances = $this->Payrolls->salaryallowances->find('all', [
             "conditions" => ['payrolls_id' => $id]]);
         $this->set('other_allowances', $other_allowances);
-
         foreach ($other_allowances as $other_allowance) {
             $total += $other_allowance->value;
+        }
+
+        $salary_deductions = $this->Payrolls->salarydeductions->find('all', [
+            "conditions" => ['payrolls_id' => $id]]);
+        $this->set('salary_deductions', $salary_deductions);
+        foreach ($salary_deductions as $salary_deduction) {
+            $total -= $salary_deduction->value;
         }
 
         $this->set(compact('payroll', 'total'));
@@ -113,11 +117,13 @@ class PayrollsController extends AppController
         $payroll = $this->Payrolls->newEntity();
         if ($this->request->is('post')) {
             $payroll = $this->Payrolls->newEntity($this->request->data, [
-                'associated' => ['SalaryAllowances']
+                'associated' => ['SalaryAllowances', 'SalaryDeductions']
             ]);
             $payroll->year = $this->request->data['Payrolls']['year']['year'];
             $payroll->month = $this->request->data['Payrolls']['month']['month'];
             $payroll->status = 0;
+
+            // debug($payroll);
             if ($this->Payrolls->save($payroll)) {
                 $this->setSuccesMessage('succes-save');
                 return $this->redirect(['action' => 'index']);
@@ -171,7 +177,7 @@ class PayrollsController extends AppController
             $user = $Users
                 ->find()
                 ->contain(['JobPositions', 'Educations', 'MaritalStatuses', 'Transports', 
-                           'Allowances', 'Bpjs'])
+                           'Allowances', 'Bpjs', "Deductions"])
                 ->where([
                     'Users.id' => $user_id,
                 ])->last();
@@ -194,6 +200,9 @@ class PayrollsController extends AppController
 
             # Get Other Allowance
             $this->set('other_allowances', $user['allowances']);
+
+            # Get Deductions
+            $this->set('deductions', $user['deductions']);
 
             $this->render('ajax_response', 'ajax');
         }

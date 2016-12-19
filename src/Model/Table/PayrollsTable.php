@@ -26,6 +26,9 @@ class PayrollsTable extends Table
         $this->hasMany('salaryallowances', [
             'foreignKey' => 'payrolls_id'
         ]);
+        $this->hasMany('salarydeductions', [
+            'foreignKey' => 'payrolls_id'
+        ]);
     }
 
     public function validationDefault(Validator $validator)
@@ -73,11 +76,6 @@ class PayrollsTable extends Table
             ->numeric('transport_allowance')
             ->requirePresence('transport_allowance', 'create')
             ->notEmpty('transport_allowance');
-
-        $validator
-            ->numeric('collector_share_profit')
-            ->requirePresence('collector_share_profit', 'create')
-            ->notEmpty('collector_share_profit');
 
         return $validator;
     }

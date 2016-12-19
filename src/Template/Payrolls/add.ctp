@@ -3,7 +3,7 @@
 <nav class="large-2 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Menu :') ?></li>
-        <li><?= $this->Html->link(__('List'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Daftar Gaji'), ['action' => 'index']) ?></li>
     </ul>
 </nav>
 
@@ -23,7 +23,6 @@
                 'orderYear' => 'asc',
                 'empty'=>false,
             ]);
-            echo $this->Form->input('Payrolls.collector_share_profit', ['default'=>0]);
         ?>
         <div id="container"></div>
     </fieldset>
