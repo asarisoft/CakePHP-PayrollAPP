@@ -1,13 +1,13 @@
 <?php
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\deductionsController;
+use App\Controller\SalaryDeductionsController;
 use Cake\TestSuite\IntegrationTestCase;
 
 /**
- * App\Controller\deductionsController Test Case
+ * App\Controller\SalaryDeductionsController Test Case
  */
-class deductionsControllerTest extends IntegrationTestCase
+class SalaryDeductionsControllerTest extends IntegrationTestCase
 {
 
     /**
@@ -16,15 +16,18 @@ class deductionsControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'app.deductions',
+        'app.salary_deductions',
+        'app.payrolls',
         'app.users',
         'app.transports',
         'app.job_positions',
         'app.marital_statuses',
         'app.educations',
         'app.allowances',
+        'app.deductions',
         'app.bpjs',
-        'app.users_bpjs'
+        'app.users_bpjs',
+        'app.salaryallowances'
     ];
 
     /**

@@ -26,6 +26,9 @@ class PayrollsTable extends Table
         $this->hasMany('salaryallowances', [
             'foreignKey' => 'payrolls_id'
         ]);
+        $this->hasMany('salarydeductions', [
+            'foreignKey' => 'payrolls_id'
+        ]);
     }
 
     public function validationDefault(Validator $validator)

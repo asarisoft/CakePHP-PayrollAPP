@@ -1,22 +1,22 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\deductionsTable;
+use App\Model\Table\SalaryDeductionsTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\deductionsTable Test Case
+ * App\Model\Table\SalaryDeductionsTable Test Case
  */
-class deductionsTableTest extends TestCase
+class SalaryDeductionsTableTest extends TestCase
 {
 
     /**
      * Test subject
      *
-     * @var \App\Model\Table\deductionsTable
+     * @var \App\Model\Table\SalaryDeductionsTable
      */
-    public $deductions;
+    public $SalaryDeductions;
 
     /**
      * Fixtures
@@ -24,15 +24,18 @@ class deductionsTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.deductions',
+        'app.salary_deductions',
+        'app.payrolls',
         'app.users',
         'app.transports',
         'app.job_positions',
         'app.marital_statuses',
         'app.educations',
         'app.allowances',
+        'app.deductions',
         'app.bpjs',
-        'app.users_bpjs'
+        'app.users_bpjs',
+        'app.salaryallowances'
     ];
 
     /**
@@ -43,8 +46,8 @@ class deductionsTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('deductions') ? [] : ['className' => 'App\Model\Table\deductionsTable'];
-        $this->deductions = TableRegistry::get('deductions', $config);
+        $config = TableRegistry::exists('SalaryDeductions') ? [] : ['className' => 'App\Model\Table\SalaryDeductionsTable'];
+        $this->SalaryDeductions = TableRegistry::get('SalaryDeductions', $config);
     }
 
     /**
@@ -54,7 +57,7 @@ class deductionsTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->deductions);
+        unset($this->SalaryDeductions);
 
         parent::tearDown();
     }

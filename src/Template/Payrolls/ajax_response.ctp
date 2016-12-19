@@ -35,9 +35,9 @@ foreach ($other_allowances as $other_allowance) {
 
 // echo $deductions;
 foreach ($deductions as $deduction) {
-    echo $this->Form->input('Payrolls.deductions.'.$i.'.payrolls_id',  ['default'=>$deduction->name, 'type'=>'hidden']);
-    echo $this->Form->input('Payrolls.deductions.'.$i.'.name',  ['default'=>$deduction->name, 'type'=>'hidden']);
-    echo $this->Form->input('Payrolls.deductions.'.$i.'.value',  ['default'=>$deduction->value, 'label'=>$deduction->name, 'readonly'=>'readonly']);
+    echo $this->Form->input('Payrolls.salarydeductions.'.$i.'.payrolls_id',  ['default'=>$deduction->name, 'type'=>'hidden']);
+    echo $this->Form->input('Payrolls.salarydeductions.'.$i.'.name',  ['default'=>$deduction->name, 'type'=>'hidden']);
+    echo $this->Form->input('Payrolls.salarydeductions.'.$i.'.value',  ['default'=>$deduction->value, 'label'=>$deduction->name, 'readonly'=>'readonly']);
     $i++;
 }
 

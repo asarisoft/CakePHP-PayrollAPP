@@ -66,6 +66,18 @@
         <?php }?>
 
         <tr>
+            <th scope="row" colspan="3">Potongan</th>
+        </tr>
+
+        <?php foreach ($salary_deductions as $salary_deduction) { ?>
+        <tr class="deductions">
+            <th scope="row"><?= __($salary_deduction->name) ?></th>
+            <td class="colon">:</td>
+            <td><span><?= $this->Number->format($salary_deduction->value) ?></span></td>
+        </tr>
+        <?php }?>
+
+        <tr>
             <th scope="row"><?= __("Total Gaji") ?></th>
             <td class="colon">:</td>
             <td><span><strong><?= $this->Number->format($total) ?></strong></span></td>
