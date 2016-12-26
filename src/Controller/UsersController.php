@@ -139,11 +139,24 @@ class UsersController extends AppController
 
         // This will render Other view in users template
         $this -> render('login2');
-   }
+    }
 
-   public function logout()
-   {
+    public function logout()
+    {
        return $this->redirect($this->Auth->logout());
-   }
+    }
 
+    public function changePassword() { 
+        $user= $this->Users->get($this->Auth->user('id')); 
+        if (!empty($this->request->data)) { 
+            $user = $this->Users->patchEntity($user, $this->request->data, ['validate' => 'password']); 
+            if ($this->Users->save($user)) { 
+                $this->Flash->success('Password berhasil diubah!'); 
+            } else {
+                $this->Flash->error(__('Password gagal diubah')); 
+            }
+        } 
+        $this->set(compact('user'));
+        $this->set('_serialize', ['user']);
+    } 
 }
