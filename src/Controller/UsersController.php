@@ -151,8 +151,10 @@ class UsersController extends AppController
         if (!empty($this->request->data)) { 
             $user = $this->Users->patchEntity($user, $this->request->data, ['validate' => 'password']); 
             if ($this->Users->save($user)) { 
-                $this->Flash->success('The password is successfully changed'); 
-            } 
+                $this->Flash->success('Password berhasil diubah!'); 
+            } else {
+                $this->Flash->error(__('Password gagal diubah')); 
+            }
         } 
         $this->set(compact('user'));
         $this->set('_serialize', ['user']);
