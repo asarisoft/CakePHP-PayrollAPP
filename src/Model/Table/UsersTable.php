@@ -5,7 +5,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
-
+use Cake\Auth\DefaultPasswordHasher; 
 
 class UsersTable extends Table
 {
@@ -75,6 +75,14 @@ class UsersTable extends Table
 
         return $validator;
     }
+
+
+    public function validationPassword(Validator $validator) {
+        $validator ->add('old_password','custom',['rule'=> function($value, $context){ $user = $this->get($context['data']['id']); if ($user) { if ((new DefaultPasswordHasher)->check($value, $user->password)) { return true; } } return false; }, 'message'=>'Password lama salah!', ]) ->notEmpty('old_password'); 
+        $validator 
+            ->add('password',[ 'match'=>[ 'rule'=> ['compareWith','password1'], 'message'=>'Password tidak sama!!', ] ]) ->notEmpty('password'); 
+        return $validator; 
+    } 
 
     public function buildRules(RulesChecker $rules)
     {
