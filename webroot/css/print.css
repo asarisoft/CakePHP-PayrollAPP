@@ -1,13 +1,51 @@
-@media print {
-    @page {
-        size: A4;
-        margin: 1.5cm;
-    }
-
-    html, body {
-        height:100%;
-        overflow: hidden;
-        background: #FFF;
-        font-size: 11pt;
-    }
+* {
+    margin: 0;
+    padding: 0;
 }
+
+body {
+    font: 14px/1.4 Georgia, serif;
+}
+
+.clearfix {
+	clear: both;
+}
+
+.page-wrap {
+    width: 850px;
+    margin: 0 auto; 
+}
+
+.address {
+	margin: 0px;
+}
+
+.header div {
+	float: left;
+}
+
+.header .left {
+	padding: 10px;
+	width: 20%;
+}
+
+.header .middle {
+	padding: 10px;
+	width: 60%;
+}
+
+.header .right {
+	padding: 10px;
+	width: 20%;
+}
+
+.header .logo-koperasi {
+	width: 100px;
+	margin-top: 20px;
+}
+
+.header .logo-bmt {
+	width: 100px;
+	margin-top: 20px;
+}
+

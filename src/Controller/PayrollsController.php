@@ -108,7 +108,7 @@ class PayrollsController extends AppController
 
         if ($print) {
             $this->viewBuilder()->layout('ajax');
-            $this->render('print');
+            $this->render('print2');
         }
     }
 

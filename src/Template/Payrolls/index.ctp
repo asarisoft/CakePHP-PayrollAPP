@@ -48,6 +48,7 @@
                 <th scope="col"><?= $this->Paginator->sort('created', ["label"=>"Dibuat"]) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('month', ["label"=>"Bulan Gaji"]) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('status') ?></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -58,6 +59,8 @@
                 <td><?= h($payroll->created) ?></td>
                 <td><?= date("F", mktime(0, 0, 0, $payroll->month, 10))." - ".$payroll->year ?></td>
                 <td><?= $payroll->status_text ?></td>
+                <td><?= $this->Html->link(__('Cetak'), ['action' => 'view', $payroll->id, true],
+                ['target' => '_blank']) ?></td>
             </tr>
             <?php endforeach; ?>
         </tbody>
