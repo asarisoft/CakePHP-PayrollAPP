@@ -82,33 +82,37 @@ class PayrollsController extends AppController
     public function view($id = null, $print=false)
     {
         $payroll = $this->Payrolls->get($id, [
-            'contain' => ['Users']
+            'contain' => ['Users', 'Users.JobPositions']
         ]);
 
-        $total = $payroll->basic_salary + $payroll->position_allowance +
+        $total_salary = $payroll->basic_salary + $payroll->position_allowance +
             $payroll->communication_allowance + $payroll->rice_allowance +
+            $payroll->tunjangan_kompetensi +
             $payroll->education_allowance + $payroll->transport_allowance;
 
         $other_allowances = $this->Payrolls->salaryallowances->find('all', [
             "conditions" => ['payrolls_id' => $id]]);
         $this->set('other_allowances', $other_allowances);
         foreach ($other_allowances as $other_allowance) {
-            $total += $other_allowance->value;
+            $total_salary += $other_allowance->value;
         }
 
         $salary_deductions = $this->Payrolls->salarydeductions->find('all', [
             "conditions" => ['payrolls_id' => $id]]);
+
+        $total_deduction = 0;
         $this->set('salary_deductions', $salary_deductions);
-        foreach ($salary_deductions as $salary_deduction) {
-            $total -= $salary_deduction->value;
+        foreach ($salary_deductions as $salary_deduction) {;
+            $total_deduction += $salary_deduction->value;
         }
 
-        $this->set(compact('payroll', 'total'));
+        $total = $total_salary - $total_deduction;
+        $this->set(compact('payroll', 'total', 'total_deduction', 'total_salary'));
         $this->set('_serialize', ['payroll']);
 
         if ($print) {
             $this->viewBuilder()->layout('ajax');
-            $this->render('print');
+            $this->render('print2');
         }
     }
 
