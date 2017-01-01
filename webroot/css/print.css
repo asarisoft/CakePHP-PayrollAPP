@@ -1,52 +1,23 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
 body {
-    font: 14px/1.4 Georgia, serif;
+        margin: 0;
+        padding: 0;
+        font: 12pt "arial";
+    }
+
+/*@page {
+    width: 210mm;
+    height: 330mm; 
+    margin: 15mm;       
+}*/
+/*
+@media print {
+    html, body {
+        width: 210mm;
+        height: 330mm;        
+    }
+}*/
+
+.value {
+    text-align: right;
+    width: 200px;
 }
-
-.clearfix {
-	clear: both;
-}
-
-.page-wrap {
-    width: 850px;
-    margin: 0 auto; 
-}
-
-.address {
-	margin: 0px;
-}
-
-.header div {
-	float: left;
-}
-
-.header .left {
-	padding: 10px;
-	width: 20%;
-}
-
-.header .middle {
-	padding: 10px;
-	width: 60%;
-}
-
-.header .right {
-	padding: 10px;
-	width: 20%;
-}
-
-.header .logo-koperasi {
-	width: 100px;
-	margin-top: 20px;
-}
-
-
-.header .logo-bmt {
-	width: 100px;
-	margin-top: 20px;
-}
-
