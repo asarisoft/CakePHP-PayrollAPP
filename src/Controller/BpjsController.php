@@ -12,6 +12,7 @@ class BpjsController extends AppController
     {
         parent::beforeRender($event);
         $this->set('title', 'BPJS');
+        $this->__isAdmin();
     }
 
     public function index()

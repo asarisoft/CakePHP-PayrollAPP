@@ -11,6 +11,7 @@ class TransportsController extends AppController
     {
         parent::beforeRender($event);
         $this->set('title', 'Transportasi');
+        $this->__isAdmin();
     }
 
     public function index()

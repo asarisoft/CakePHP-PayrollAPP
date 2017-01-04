@@ -23,16 +23,18 @@ $cakeDescription = 'BMT Amanah Payroll Application';
         </ul>
         <div class="top-bar-section">
             <ul class="left">
-                <li><?= $this->Html->link('Jabatan', '/job-positions'); ?></li>
-                <li><?= $this->Html->link('Status', '/marital-statuses'); ?></li>
-                <li><?= $this->Html->link('Pendidikan', '/educations'); ?></li>
-                <li><?= $this->Html->link('Transportasi', '/transports'); ?></li>
-                <li><?= $this->Html->link('Pegawai', '/users'); ?></li>
-                <li><?= $this->Html->link('BPJS', '/bpjs'); ?></li>
+                <?php if ($username == 'admin') { ?>
+                    <li><?= $this->Html->link('Jabatan', '/job-positions'); ?></li>
+                    <li><?= $this->Html->link('Status', '/marital-statuses'); ?></li>
+                    <li><?= $this->Html->link('Pendidikan', '/educations'); ?></li>
+                    <li><?= $this->Html->link('Transportasi', '/transports'); ?></li>
+                    <li><?= $this->Html->link('Pegawai', '/users'); ?></li>
+                    <li><?= $this->Html->link('BPJS', '/bpjs'); ?></li>
+                <?php } ?>
                 <li><?= $this->Html->link('Tambahan', '/allowances'); ?></li>
                 <li><?= $this->Html->link('Potongan', '/deductions'); ?></li>
                 <li><?= $this->Html->link('Daftar Gaji', '/payrolls'); ?></li>
-                <li><?= $this->Html->link('Keluar', '/users/logout', ['confirm' => __('Yakin untuk keluar aplikasi?')]) ?></li>;
+                <li><?= $this->Html->link('Keluar', '/users/logout', ['confirm' => __('Yakin untuk keluar aplikasi?')]) ?></li>
             </ul>
         </div>
     </nav>

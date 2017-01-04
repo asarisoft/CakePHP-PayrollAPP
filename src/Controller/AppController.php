@@ -15,7 +15,7 @@ class AppController extends Controller
         $this->loadComponent('Flash');
         $this->loadComponent('Auth', [
             'loginRedirect' => [
-                'controller' => 'JobPositions',
+                'controller' => 'Payrolls',
                 'action' => 'index'
             ],
             'logoutRedirect' => [
@@ -33,6 +33,12 @@ class AppController extends Controller
         ) {
             $this->set('_serialize', true);
         }
+
+        $user = $this->Auth->user();
+        if($user != null) {
+            $username = $user['username'];
+        }
+        $this->set(compact('username'));
     }
 
     public function setSuccesMessage($type="", $message="") {
@@ -42,7 +48,6 @@ class AppController extends Controller
         } elseif ($type == "succes-delete") {
             $message = "Data telah dihapus.";
         } 
-
         $this->Flash->success(__($message));
     }
 
@@ -57,5 +62,12 @@ class AppController extends Controller
         $this->Flash->error(__($message));
     }
 
-
+    protected function __isAdmin(){
+        if($this->Auth->user()){
+            if($this->Auth->user()['username'] == 'admin'){
+                return true;
+            }
+        }
+        $this->redirect(['controller' => 'Users', 'action' => 'login']);
+    }
 }

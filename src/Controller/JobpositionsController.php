@@ -12,6 +12,7 @@ class JobPositionsController extends AppController
     {
         parent::beforeRender($event);
         $this->set('title', 'Jabatan');
+        $this->__isAdmin();
     }
 
     public function index()

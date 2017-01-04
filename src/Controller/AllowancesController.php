@@ -12,6 +12,7 @@ class AllowancesController extends AppController
     {
         parent::beforeRender($event);
         $this->set('title', 'Tambahan Gaji');
+        $this->__isAdmin();
     }
 
     public function index()
