@@ -18,6 +18,7 @@ class UsersController extends AppController
 
     public function index()
     {
+        $this->__isAdmin();
         $this->paginate = [
             'contain' => ['Transports', 'JobPositions', 'MaritalStatuses', 'Educations'],
             'limit'=> 20
@@ -32,6 +33,7 @@ class UsersController extends AppController
 
     public function view($id = null)
     {
+        $this->__isAdmin();
         $user = $this->Users->get($id, [
             'contain' => ['Transports', 'JobPositions', 'MaritalStatuses', 'Educations']
         ]);
@@ -56,6 +58,7 @@ class UsersController extends AppController
 
     public function add()
     {
+        $this->__isAdmin();
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->data);
@@ -78,6 +81,7 @@ class UsersController extends AppController
 
     public function edit($id = null)
     {
+        $this->__isAdmin();
         $user = $this->Users->get($id, [
             'contain' => []
         ]);
@@ -99,20 +103,6 @@ class UsersController extends AppController
         $this->set('_serialize', ['user']);
     }
 
-    // public function delete($id = null)
-    // {
-    //     $this->request->allowMethod(['post', 'delete']);
-    //     $user = $this->Users->get($id);
-    //     if ($this->Users->delete($user)) {
-    //         $this->Flash->success(__('The user has been deleted.'));
-    //     } else {
-    //         $this->Flash->error(__('The user could not be deleted. Please, try again.'));
-    //     }
-
-    //     return $this->redirect(['action' => 'index']);
-    // }
-
-
     public function login() {   
         
         // this will ignore to render default layout
@@ -126,12 +116,12 @@ class UsersController extends AppController
         }
 
         if ($this->request->is('post')) {
-           $user = $this->Auth->identify();
+            $user = $this->Auth->identify();
             if ($user) {
                $this->Auth->setUser($user);
                return $this->redirect($this->Auth->redirectUrl());
             } else {
-                $this->Flash->error(__('Username dan password salah'), [
+                $this->Flash->error(__('Username / password salah'), [
                     'key' => 'auth'
                 ]); 
             }
@@ -147,6 +137,7 @@ class UsersController extends AppController
     }
 
     public function changePassword() { 
+        $this->__isAdmin();
         $user= $this->Users->get($this->Auth->user('id')); 
         if (!empty($this->request->data)) { 
             $user = $this->Users->patchEntity($user, $this->request->data, ['validate' => 'password']); 
