@@ -123,6 +123,7 @@ class PayrollsController extends AppController
         if ($this->request->is('post')) {
 
             $data = $this->request->data;
+            // debug($data);
             $user_id = $data['Payrolls']['users_id'];
             $user = $Users
                 ->find()
@@ -149,6 +150,8 @@ class PayrollsController extends AppController
             $payroll->year = $this->request->data['Payrolls']['year']['year'];
             $payroll->month = $this->request->data['Payrolls']['month']['month'];
             $payroll->status = 0;
+
+            // debug($payroll);
 
             if ($this->Payrolls->save($payroll)) {
                 $this->setSuccesMessage('succes-save');

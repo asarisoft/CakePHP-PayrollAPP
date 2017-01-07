@@ -1,0 +1,120 @@
+2016-12-17 05:52:29 Debug: command 'bake' in plugin 'Bake' was not aliased, conflicts with 'Bake'
+2016-12-17 05:52:29 Debug: command 'benchmark' in plugin 'DebugKit' was not aliased, conflicts with 'DebugKit'
+2016-12-17 05:52:29 Debug: command 'whitespace' in plugin 'DebugKit' was not aliased, conflicts with 'DebugKit'
+2016-12-17 05:52:29 Debug: command 'migrations' in plugin 'Migrations' was not aliased, conflicts with 'Migrations'
+2016-12-17 12:54:23 Debug: command 'bake' in plugin 'Bake' was not aliased, conflicts with 'Bake'
+2016-12-17 12:54:23 Debug: command 'benchmark' in plugin 'DebugKit' was not aliased, conflicts with 'DebugKit'
+2016-12-17 12:54:23 Debug: command 'whitespace' in plugin 'DebugKit' was not aliased, conflicts with 'DebugKit'
+2016-12-17 12:54:23 Debug: command 'migrations' in plugin 'Migrations' was not aliased, conflicts with 'Migrations'
+2016-12-17 12:54:54 Notice: Notice (8): Use of undefined constant november2016 - assumed 'november2016' in [C:\xampp\htdocs\bmt-penggajian\config\Seeds\UsersSeed.php, line 36]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+UsersSeed::run() - ROOT\config\Seeds\UsersSeed.php, line 36
+Phinx\Migration\Manager\Environment::executeSeed() - ROOT\vendor\robmorgan\phinx\src\Phinx\Migration\Manager\Environment.php, line 148
+Phinx\Migration\Manager::executeSeed() - ROOT\vendor\robmorgan\phinx\src\Phinx\Migration\Manager.php, line 338
+Phinx\Migration\Manager::seed() - ROOT\vendor\robmorgan\phinx\src\Phinx\Migration\Manager.php, line 421
+Phinx\Console\Command\SeedRun::execute() - ROOT\vendor\robmorgan\phinx\src\Phinx\Console\Command\SeedRun.php, line 107
+Migrations\Command\Seed::parentExecute() - ROOT\vendor\cakephp\migrations\src\ConfigurationTrait.php, line 165
+Migrations\Command\Seed::execute() - ROOT\vendor\cakephp\migrations\src\Command\Seed.php, line 61
+Symfony\Component\Console\Command\Command::run() - ROOT\vendor\symfony\console\Command\Command.php, line 256
+Symfony\Component\Console\Application::doRunCommand() - ROOT\vendor\symfony\console\Application.php, line 820
+Symfony\Component\Console\Application::doRun() - ROOT\vendor\symfony\console\Application.php, line 187
+Symfony\Component\Console\Application::run() - ROOT\vendor\symfony\console\Application.php, line 118
+Migrations\Shell\MigrationsShell::main() - ROOT\vendor\cakephp\migrations\src\Shell\MigrationsShell.php, line 98
+Cake\Console\Shell::runCommand() - CORE\src\Console\Shell.php, line 466
+Migrations\Shell\MigrationsShell::runCommand() - ROOT\vendor\cakephp\migrations\src\Shell\MigrationsShell.php, line 130
+Cake\Console\ShellDispatcher::_dispatch() - CORE\src\Console\ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE\src\Console\ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE\src\Console\ShellDispatcher.php, line 128
+[main] - ROOT\bin\cake.php, line 34
+
+
+
+2016-12-18 20:19:12 Debug: command 'bake' in plugin 'Bake' was not aliased, conflicts with 'Bake'
+2016-12-18 20:19:12 Debug: command 'benchmark' in plugin 'DebugKit' was not aliased, conflicts with 'DebugKit'
+2016-12-18 20:19:12 Debug: command 'whitespace' in plugin 'DebugKit' was not aliased, conflicts with 'DebugKit'
+2016-12-18 20:19:12 Debug: command 'migrations' in plugin 'Migrations' was not aliased, conflicts with 'Migrations'
+2016-12-18 21:51:37 Debug: command 'bake' in plugin 'Bake' was not aliased, conflicts with 'Bake'
+2016-12-18 21:51:37 Debug: command 'benchmark' in plugin 'DebugKit' was not aliased, conflicts with 'DebugKit'
+2016-12-18 21:51:37 Debug: command 'whitespace' in plugin 'DebugKit' was not aliased, conflicts with 'DebugKit'
+2016-12-18 21:51:37 Debug: command 'migrations' in plugin 'Migrations' was not aliased, conflicts with 'Migrations'
+2016-12-18 21:51:46 Notice: Notice (8): Use of undefined constant november2016 - assumed 'november2016' in [C:\xampp\htdocs\bmt-penggajian\config\Seeds\UsersSeed.php, line 36]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+UsersSeed::run() - ROOT\config\Seeds\UsersSeed.php, line 36
+Phinx\Migration\Manager\Environment::executeSeed() - ROOT\vendor\robmorgan\phinx\src\Phinx\Migration\Manager\Environment.php, line 148
+Phinx\Migration\Manager::executeSeed() - ROOT\vendor\robmorgan\phinx\src\Phinx\Migration\Manager.php, line 338
+Phinx\Migration\Manager::seed() - ROOT\vendor\robmorgan\phinx\src\Phinx\Migration\Manager.php, line 421
+Phinx\Console\Command\SeedRun::execute() - ROOT\vendor\robmorgan\phinx\src\Phinx\Console\Command\SeedRun.php, line 107
+Migrations\Command\Seed::parentExecute() - ROOT\vendor\cakephp\migrations\src\ConfigurationTrait.php, line 165
+Migrations\Command\Seed::execute() - ROOT\vendor\cakephp\migrations\src\Command\Seed.php, line 61
+Symfony\Component\Console\Command\Command::run() - ROOT\vendor\symfony\console\Command\Command.php, line 256
+Symfony\Component\Console\Application::doRunCommand() - ROOT\vendor\symfony\console\Application.php, line 820
+Symfony\Component\Console\Application::doRun() - ROOT\vendor\symfony\console\Application.php, line 187
+Symfony\Component\Console\Application::run() - ROOT\vendor\symfony\console\Application.php, line 118
+Migrations\Shell\MigrationsShell::main() - ROOT\vendor\cakephp\migrations\src\Shell\MigrationsShell.php, line 98
+Cake\Console\Shell::runCommand() - CORE\src\Console\Shell.php, line 466
+Migrations\Shell\MigrationsShell::runCommand() - ROOT\vendor\cakephp\migrations\src\Shell\MigrationsShell.php, line 130
+Cake\Console\ShellDispatcher::_dispatch() - CORE\src\Console\ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE\src\Console\ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE\src\Console\ShellDispatcher.php, line 128
+[main] - ROOT\bin\cake.php, line 34
+
+
+
+2016-12-19 06:11:30 Debug: command 'bake' in plugin 'Bake' was not aliased, conflicts with 'Bake'
+2016-12-19 06:11:30 Debug: command 'benchmark' in plugin 'DebugKit' was not aliased, conflicts with 'DebugKit'
+2016-12-19 06:11:30 Debug: command 'whitespace' in plugin 'DebugKit' was not aliased, conflicts with 'DebugKit'
+2016-12-19 06:11:30 Debug: command 'migrations' in plugin 'Migrations' was not aliased, conflicts with 'Migrations'
+2016-12-25 15:03:51 Notice: Notice (8): Use of undefined constant november2016 - assumed 'november2016' in [C:\xampp\htdocs\bmt-penggajian\config\Seeds\UsersSeed.php, line 36]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+UsersSeed::run() - ROOT\config\Seeds\UsersSeed.php, line 36
+Phinx\Migration\Manager\Environment::executeSeed() - ROOT\vendor\robmorgan\phinx\src\Phinx\Migration\Manager\Environment.php, line 148
+Phinx\Migration\Manager::executeSeed() - ROOT\vendor\robmorgan\phinx\src\Phinx\Migration\Manager.php, line 338
+Phinx\Migration\Manager::seed() - ROOT\vendor\robmorgan\phinx\src\Phinx\Migration\Manager.php, line 421
+Phinx\Console\Command\SeedRun::execute() - ROOT\vendor\robmorgan\phinx\src\Phinx\Console\Command\SeedRun.php, line 107
+Migrations\Command\Seed::parentExecute() - ROOT\vendor\cakephp\migrations\src\ConfigurationTrait.php, line 165
+Migrations\Command\Seed::execute() - ROOT\vendor\cakephp\migrations\src\Command\Seed.php, line 61
+Symfony\Component\Console\Command\Command::run() - ROOT\vendor\symfony\console\Command\Command.php, line 256
+Symfony\Component\Console\Application::doRunCommand() - ROOT\vendor\symfony\console\Application.php, line 820
+Symfony\Component\Console\Application::doRun() - ROOT\vendor\symfony\console\Application.php, line 187
+Symfony\Component\Console\Application::run() - ROOT\vendor\symfony\console\Application.php, line 118
+Migrations\Shell\MigrationsShell::main() - ROOT\vendor\cakephp\migrations\src\Shell\MigrationsShell.php, line 98
+Cake\Console\Shell::runCommand() - CORE\src\Console\Shell.php, line 466
+Migrations\Shell\MigrationsShell::runCommand() - ROOT\vendor\cakephp\migrations\src\Shell\MigrationsShell.php, line 130
+Cake\Console\ShellDispatcher::_dispatch() - CORE\src\Console\ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE\src\Console\ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE\src\Console\ShellDispatcher.php, line 128
+[main] - ROOT\bin\cake.php, line 34
+
+
+
+2016-12-25 15:54:03 Debug: command 'bake' in plugin 'Bake' was not aliased, conflicts with 'Bake'
+2016-12-25 15:54:03 Debug: command 'benchmark' in plugin 'DebugKit' was not aliased, conflicts with 'DebugKit'
+2016-12-25 15:54:03 Debug: command 'whitespace' in plugin 'DebugKit' was not aliased, conflicts with 'DebugKit'
+2016-12-25 15:54:03 Debug: command 'migrations' in plugin 'Migrations' was not aliased, conflicts with 'Migrations'
+2016-12-25 15:54:10 Notice: Notice (8): Use of undefined constant november2016 - assumed 'november2016' in [C:\xampp\htdocs\bmt-penggajian\config\Seeds\UsersSeed.php, line 36]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+UsersSeed::run() - ROOT\config\Seeds\UsersSeed.php, line 36
+Phinx\Migration\Manager\Environment::executeSeed() - ROOT\vendor\robmorgan\phinx\src\Phinx\Migration\Manager\Environment.php, line 148
+Phinx\Migration\Manager::executeSeed() - ROOT\vendor\robmorgan\phinx\src\Phinx\Migration\Manager.php, line 338
+Phinx\Migration\Manager::seed() - ROOT\vendor\robmorgan\phinx\src\Phinx\Migration\Manager.php, line 421
+Phinx\Console\Command\SeedRun::execute() - ROOT\vendor\robmorgan\phinx\src\Phinx\Console\Command\SeedRun.php, line 107
+Migrations\Command\Seed::parentExecute() - ROOT\vendor\cakephp\migrations\src\ConfigurationTrait.php, line 165
+Migrations\Command\Seed::execute() - ROOT\vendor\cakephp\migrations\src\Command\Seed.php, line 61
+Symfony\Component\Console\Command\Command::run() - ROOT\vendor\symfony\console\Command\Command.php, line 256
+Symfony\Component\Console\Application::doRunCommand() - ROOT\vendor\symfony\console\Application.php, line 820
+Symfony\Component\Console\Application::doRun() - ROOT\vendor\symfony\console\Application.php, line 187
+Symfony\Component\Console\Application::run() - ROOT\vendor\symfony\console\Application.php, line 118
+Migrations\Shell\MigrationsShell::main() - ROOT\vendor\cakephp\migrations\src\Shell\MigrationsShell.php, line 98
+Cake\Console\Shell::runCommand() - CORE\src\Console\Shell.php, line 466
+Migrations\Shell\MigrationsShell::runCommand() - ROOT\vendor\cakephp\migrations\src\Shell\MigrationsShell.php, line 130
+Cake\Console\ShellDispatcher::_dispatch() - CORE\src\Console\ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE\src\Console\ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE\src\Console\ShellDispatcher.php, line 128
+[main] - ROOT\bin\cake.php, line 34
+
+
+

@@ -1,0 +1,148 @@
+2016-12-18 21:42:56 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'bmt.deductions' doesn't exist
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(97): Cake\Database\Schema\Collection->_reflect('Column', 'salary_deductio...', Array, Object(Cake\Database\Schema\Table))
+#1 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('salary_deductio...', Array)
+#2 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\ORM\Table.php(440): Cake\Database\Schema\CachedCollection->describe('salary_deductio...')
+#3 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(261): Cake\ORM\Table->schema()
+#4 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(211): Bake\Shell\Task\ModelTask->findBelongsTo(Object(App\Model\Table\deductionsTable), Array)
+#5 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(127): Bake\Shell\Task\ModelTask->getAssociations(Object(App\Model\Table\deductionsTable))
+#6 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(110): Bake\Shell\Task\ModelTask->getTableContext(Object(App\Model\Table\deductionsTable), 'deductions', 'Deductions')
+#7 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(97): Bake\Shell\Task\ModelTask->bake('Deductions')
+#8 [internal function]: Bake\Shell\Task\ModelTask->main('deductions')
+#9 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\Shell.php(466): call_user_func_array(Array, Array)
+#10 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\Shell.php(459): Cake\Console\Shell->runCommand(Array, false, Array)
+#11 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(227): Cake\Console\Shell->runCommand(Array, true, Array)
+#12 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#13 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#14 C:\xampp\htdocs\bmt-penggajian\bin\cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#15 {main}
+
+
+2016-12-18 21:47:25 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'bmt.deductions' doesn't exist
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(97): Cake\Database\Schema\Collection->_reflect('Column', 'deductions', Array, Object(Cake\Database\Schema\Table))
+#1 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('deductions', Array)
+#2 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\ORM\Table.php(440): Cake\Database\Schema\CachedCollection->describe('deductions')
+#3 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(261): Cake\ORM\Table->schema()
+#4 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(211): Bake\Shell\Task\ModelTask->findBelongsTo(Object(App\Model\Table\deductionsTable), Array)
+#5 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(127): Bake\Shell\Task\ModelTask->getAssociations(Object(App\Model\Table\deductionsTable))
+#6 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(110): Bake\Shell\Task\ModelTask->getTableContext(Object(App\Model\Table\deductionsTable), 'deductions', 'Deductions')
+#7 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(97): Bake\Shell\Task\ModelTask->bake('Deductions')
+#8 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\bake\src\Shell\BakeShell.php(257): Bake\Shell\Task\ModelTask->main('Deductions')
+#9 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Collection\CollectionTrait.php(52): Bake\Shell\BakeShell->Bake\Shell\{closure}('deductions', 0)
+#10 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\bake\src\Shell\BakeShell.php(260): Cake\Collection\Collection->each(Object(Closure))
+#11 [internal function]: Bake\Shell\BakeShell->all('deductions')
+#12 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\Shell.php(452): call_user_func_array(Array, Array)
+#13 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(227): Cake\Console\Shell->runCommand(Array, true, Array)
+#14 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#15 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#16 C:\xampp\htdocs\bmt-penggajian\bin\cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#17 {main}
+
+
+2016-12-19 06:11:00 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'bmt.salary_deductions' doesn't exist
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(97): Cake\Database\Schema\Collection->_reflect('Column', 'salary_deductio...', Array, Object(Cake\Database\Schema\Table))
+#1 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('salary_deductio...', Array)
+#2 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\ORM\Table.php(440): Cake\Database\Schema\CachedCollection->describe('salary_deductio...')
+#3 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\ORM\Table.php(518): Cake\ORM\Table->schema()
+#4 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(210): Cake\ORM\Table->primaryKey()
+#5 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(127): Bake\Shell\Task\ModelTask->getAssociations(Object(Cake\ORM\Table))
+#6 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(110): Bake\Shell\Task\ModelTask->getTableContext(Object(Cake\ORM\Table), 'salary_deductio...', 'SalaryDeduction...')
+#7 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(97): Bake\Shell\Task\ModelTask->bake('SalaryDeduction...')
+#8 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\bake\src\Shell\BakeShell.php(257): Bake\Shell\Task\ModelTask->main('SalaryDeduction...')
+#9 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Collection\CollectionTrait.php(52): Bake\Shell\BakeShell->Bake\Shell\{closure}('salary_deductio...', 0)
+#10 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\bake\src\Shell\BakeShell.php(260): Cake\Collection\Collection->each(Object(Closure))
+#11 [internal function]: Bake\Shell\BakeShell->all('salary_deductio...')
+#12 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\Shell.php(452): call_user_func_array(Array, Array)
+#13 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(227): Cake\Console\Shell->runCommand(Array, true, Array)
+#14 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#15 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#16 C:\xampp\htdocs\bmt-penggajian\bin\cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#17 {main}
+
+
+2016-12-26 12:39:31 Error: [Cake\Console\Exception\MissingShellException] Shell class for "Backups.Backup" could not be found.
+Exception Attributes: array (
+  'class' => 'Backups.Backup',
+)
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(223): Cake\Console\ShellDispatcher->findShell('Backups.backup')
+#1 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#2 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#3 C:\xampp\htdocs\bmt-penggajian\bin\cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#4 {main}
+
+
+2016-12-26 12:39:56 Error: [Cake\Console\Exception\MissingShellException] Shell class for "../Backcups.Backup" could not be found.
+Exception Attributes: array (
+  'class' => '../Backcups.Backup',
+)
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(223): Cake\Console\ShellDispatcher->findShell('../Backcups.bac...')
+#1 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#2 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#3 C:\xampp\htdocs\bmt-penggajian\bin\cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#4 {main}
+
+
+2016-12-26 12:48:28 Error: [Cake\Console\Exception\MissingShellException] Shell class for "Backcups.Backup" could not be found.
+Exception Attributes: array (
+  'class' => 'Backcups.Backup',
+)
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(223): Cake\Console\ShellDispatcher->findShell('Backcups.backup')
+#1 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#2 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#3 C:\xampp\htdocs\bmt-penggajian\bin\cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#4 {main}
+
+
+2016-12-26 12:48:30 Error: [Cake\Console\Exception\MissingShellException] Shell class for "Backcups.Backup" could not be found.
+Exception Attributes: array (
+  'class' => 'Backcups.Backup',
+)
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(223): Cake\Console\ShellDispatcher->findShell('Backcups.backup')
+#1 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#2 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#3 C:\xampp\htdocs\bmt-penggajian\bin\cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#4 {main}
+
+
+2016-12-26 13:10:34 Error: [Cake\Console\Exception\MissingShellException] Shell class for "Backcups.Backup" could not be found.
+Exception Attributes: array (
+  'class' => 'Backcups.Backup',
+)
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(223): Cake\Console\ShellDispatcher->findShell('Backcups.backup')
+#1 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#2 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#3 C:\xampp\htdocs\bmt-penggajian\bin\cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#4 {main}
+
+
+2016-12-26 13:11:52 Error: [Cake\Console\Exception\MissingShellException] Shell class for "Backcups" could not be found.
+Exception Attributes: array (
+  'class' => 'Backcups',
+)
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(223): Cake\Console\ShellDispatcher->findShell('Backcups')
+#1 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#2 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#3 C:\xampp\htdocs\bmt-penggajian\bin\cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#4 {main}
+
+
+2016-12-26 13:13:26 Error: [Cake\Console\Exception\MissingShellException] Shell class for "Backups.Backup" could not be found.
+Exception Attributes: array (
+  'class' => 'Backups.Backup',
+)
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(223): Cake\Console\ShellDispatcher->findShell('Backups.backup')
+#1 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#2 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#3 C:\xampp\htdocs\bmt-penggajian\bin\cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#4 {main}
+
+
