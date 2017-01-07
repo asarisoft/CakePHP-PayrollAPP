@@ -6,11 +6,11 @@
 <div class="users form large-7 medium-8 columns content float-left">
     <?= $this->Form->create($user) ?>
         <fieldset>
-        <legend><?= __('Change password') ?></legend>
+        <legend><?= __('Ganti Passwored') ?></legend>
         <?php
-            echo $this->Form->input('old_password',['type' => 'password' , 'label'=>'Old password', "required"=>"required"]);
-            echo $this->Form->input('password1',['type'=>'password' ,'label'=>'Password', "required"=>"required"]);
-            echo $this->Form->input('password',['type' => 'password' , 'label'=>'Repeat password', "required"=>"required"]);
+            echo $this->Form->input('old_password',['type' => 'password' , 'label'=>'Password Lama', "required"=>"required"]);
+            echo $this->Form->input('password1',['type'=>'password' ,'label'=>'Password Baru', "required"=>"required"]);
+            echo $this->Form->input('password',['type' => 'password' , 'label'=>'Ulangi Password Baru', "required"=>"required"]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Simpan')) ?>
