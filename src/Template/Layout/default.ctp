@@ -34,6 +34,7 @@ $cakeDescription = 'BMT Amanah Payroll Application';
                 <li><?= $this->Html->link('Tambahan', '/allowances'); ?></li>
                 <li><?= $this->Html->link('Potongan', '/deductions'); ?></li>
                 <li><?= $this->Html->link('Daftar Gaji', '/payrolls'); ?></li>
+                <li><?= $this->Html->link('Ganti Password', '/users/changePassword'); ?></li>
                 <li><?= $this->Html->link('Keluar', '/users/logout', ['confirm' => __('Yakin untuk keluar aplikasi?')]) ?></li>
             </ul>
         </div>
