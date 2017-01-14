@@ -561,6 +561,31 @@ div.message.hidden {
     margin-bottom: 20px;
 }
 
+.content .title_form {
+    color: black;
+    margin-top: 37px;
+    margin-bottom: 5px;
+}
+
+.fake_input {
+    display: block;
+    background: rgb(221, 221, 221);
+    padding: 7px 8px;
+    font-size: 14px;
+    border: 1px solid rgb(204, 204, 204);
+    margin-bottom: 16px;
+}
+
+.fake_label {
+    color: #4d4d4d;
+    cursor: pointer;
+    display: block;
+    font-size: 0.875rem;
+    font-weight: normal;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
 .content h4 {
     color: #be140b;
     padding-bottom: 0.5rem;
@@ -597,3 +622,4 @@ select {
 .colon {
     width: 10%;
 }
+

@@ -117,10 +117,34 @@ class PayrollsController extends AppController
     }
 
     public function add()
-    {
+    {   
+        $Users = TableRegistry::get('Users');
         $payroll = $this->Payrolls->newEntity();
         if ($this->request->is('post')) {
-            $payroll = $this->Payrolls->newEntity($this->request->data, [
+
+            $data = $this->request->data;
+            // debug($data);
+            $user_id = $data['Payrolls']['users_id'];
+            $user = $Users
+                ->find()
+                ->contain(['JobPositions', 'Educations', 'MaritalStatuses', 'Transports', 
+                           'Allowances', 'Bpjs', "Deductions"])
+                ->where([
+                    'Users.id' => $user_id,
+                ])->last();
+
+            $data['Payrolls']['basic_salary'] = $user->basic_salary;
+            $data['Payrolls']['position_allowance'] = $user->job_position->position_allowance;
+            $data['Payrolls']['communication_allowance'] = $user->job_position->communication_allowance;
+            $data['Payrolls']['education_allowance'] = $user->education->education_allowance;
+            $data['Payrolls']['transport_allowance'] = $user->transport->transport_allowance;
+            if (date_diff(Date::now(), new Date(@$user->tmt))->y >= @$user->marital_status->after_years) {
+                $data['Payrolls']['rice_allowance'] = $user->marital_status->rice_allowance;
+            } else {
+                 $data['Payrolls']['rice_allowance'] = 0;
+            }
+
+            $payroll = $this->Payrolls->newEntity($data, [
                 'associated' => ['SalaryAllowances', 'SalaryDeductions']
             ]);
             $payroll->year = $this->request->data['Payrolls']['year']['year'];
@@ -128,6 +152,7 @@ class PayrollsController extends AppController
             $payroll->status = 0;
 
             // debug($payroll);
+
             if ($this->Payrolls->save($payroll)) {
                 $this->setSuccesMessage('succes-save');
                 return $this->redirect(['action' => 'index']);
