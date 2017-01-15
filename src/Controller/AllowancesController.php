@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\Routing\Router;
 
 
 class AllowancesController extends AppController
@@ -20,9 +21,17 @@ class AllowancesController extends AppController
             'contain' => ['Users'],
             'limit'=>20
         ];
-        $allowances = $this->paginate($this->Allowances);
 
-        $this->set(compact('allowances'));
+        $query = $this->Allowances->find();
+        if (!empty ($this->request->query("user_id"))) {
+            $query->where(['users_id'=>$this->request->query("user_id")]);
+        }
+
+        $allowances = $this->paginate($query);
+
+        $users = $this->Allowances->Users->find('list')
+            ->where(['username !=' => 'admin', 'is_active !=' => 0]);
+        $this->set(compact('allowances', 'users'));
         $this->set('_serialize', ['allowances']);
     }
 

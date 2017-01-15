@@ -19,9 +19,17 @@ class DeductionsController extends AppController
         $this->paginate = [
             'contain' => ['Users']
         ];
-        $deductions = $this->paginate($this->Deductions);
 
-        $this->set(compact('deductions'));
+        $query = $this->Deductions->find();
+        if (!empty ($this->request->query("user_id"))) {
+            $query->where(['users_id'=>$this->request->query("user_id")]);
+        }
+        $deductions = $this->paginate($query);
+
+        $users = $this->Deductions->Users->find('list')
+            ->where(['username !=' => 'admin', 'is_active !=' => 0]);
+
+        $this->set(compact('deductions', 'users'));
         $this->set('_serialize', ['deductions']);
     }
 
