@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="/bmt-penggajian/css/print.css"/>
     </head>
     <body>
-        <div id="print" style="width: 750px; margin-left: auto; margin-right: auto;">
+        <div id="print" style="width: 700px; margin-left: auto; margin-right: auto; margin-top: 50px;">
             <div class="row">
                 <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2 text-xl-center text-lg-center text-md-center text-sm-center text-xs-center">
                     <img class="img img-responsive" src="/bmt-penggajian/img/logo_koprasi.png" width="100%" style="margin-top: 5px; padding: 10px;"/>
@@ -167,7 +167,8 @@
                             </table>
                         </div>
                     </div>
-                    <br/><br/>                    
+                    <br/><br/>
+                    <div class="row">                    
                     <div class="col-lg-4 col-xl-4 col-md-4 col-sm-4 col-xs-4 text-xl-center text-lg-center text-md-center text-sm-center text-xs-center">
                         <p style="font-size: 12pt;">
                             Mengetahui :<br/>
@@ -198,6 +199,7 @@
                             <?= $payroll->user->name ?>
                             </span>
                         </p>
+                    </div>
                     </div>
                 </div>
                 <p style="font-size: 10pt">
