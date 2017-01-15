@@ -196,7 +196,7 @@
                             <br/>
                             Diterima Oleh <br/>
                             <br/><br/><br/><br/>
-                            <?= $payroll->user->name ?>
+                            <span style="font-weight: bold;"><?= $payroll->user->name ?></span>
                             </span>
                         </p>
                     </div>

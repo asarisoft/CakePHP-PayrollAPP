@@ -42,6 +42,24 @@ class Initial extends AbstractMigration
             ])
             ->create();
 
+        $this->table('deductions')
+            ->addColumn('name', 'string', [
+                'default' => null,
+                'limit' => 255,
+                'null' => false,
+            ])
+            ->addColumn('users_id', 'integer', [
+                'default' => null,
+                'limit' => 11,
+                'null' => false,
+            ])
+            ->addColumn('value', 'float', [
+                'default' => null,
+                'limit' => null,
+                'null' => false,
+            ])
+            ->create();
+
         $this->table('educations')
             ->addColumn('name', 'string', [
                 'default' => null,
@@ -172,6 +190,24 @@ class Initial extends AbstractMigration
             ])
             ->create();
 
+        $this->table('salary_deductions')
+            ->addColumn('name', 'string', [
+                'default' => null,
+                'limit' => 255,
+                'null' => false,
+            ])
+            ->addColumn('payrolls_id', 'integer', [
+                'default' => null,
+                'limit' => 11,
+                'null' => false,
+            ])
+            ->addColumn('value', 'float', [
+                'default' => null,
+                'limit' => null,
+                'null' => false,
+            ])
+            ->create();
+
         $this->table('transports')
             ->addColumn('origin', 'string', [
                 'default' => null,
@@ -246,6 +282,21 @@ class Initial extends AbstractMigration
                 'limit' => null,
                 'null' => false,
             ])
+            ->addColumn('tunjangan_kompetensi', 'float', [
+                'default' => null,
+                'limit' => null,
+                'null' => false,
+            ])
+            ->addColumn('privileges', 'integer', [
+                'default' => null,
+                'limit' => 2,
+                'null' => false,
+            ])
+            ->addColumn('no_rekening', 'string', [
+                'default' => null,
+                'limit' => 255,
+                'null' => false,
+            ])
             ->create();
 
         $this->table('users_bpjs')
@@ -266,11 +317,13 @@ class Initial extends AbstractMigration
     {
         $this->dropTable('allowances');
         $this->dropTable('bpjs');
+        $this->dropTable('deductions');
         $this->dropTable('educations');
         $this->dropTable('jobpositions');
         $this->dropTable('marital_statuses');
         $this->dropTable('payrolls');
         $this->dropTable('salary_allowances');
+        $this->dropTable('salary_deductions');
         $this->dropTable('transports');
         $this->dropTable('users');
         $this->dropTable('users_bpjs');
