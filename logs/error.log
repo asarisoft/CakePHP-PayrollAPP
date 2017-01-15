@@ -5650,3 +5650,680 @@ Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 118
 
 
 
+2017-01-14 15:54:59 Error: Fatal Error (1): Call to a member function user() on a non-object in [C:\xampp\htdocs\bmt-penggajian\src\Controller\AppController.php, line 37]
+Request URL: /bmt-penggajian/
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 216
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 98
+[main] - [internal], line ??
+
+
+
+2017-01-14 15:56:09 Error: [PDOException] SQLSTATE[HY000]: General error: 11 database disk image is malformed
+Request URL: /
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Database\Statement\StatementDecorator.php(172): PDOStatement->execute(NULL)
+#1 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Database\Statement\StatementDecorator.php(172): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#2 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Database\Statement\BufferedStatement.php(75): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Database\Statement\SqliteStatement.php(41): Cake\Database\Statement\BufferedStatement->execute(NULL)
+#4 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Database\Connection.php(276): Cake\Database\Statement\SqliteStatement->execute()
+#5 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Database\Query.php(189): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#6 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\ORM\Table.php(1670): Cake\Database\Query->execute()
+#7 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\ORM\Table.php(1564): Cake\ORM\Table->_insert(Object(DebugKit\Model\Entity\Request), Array)
+#8 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\ORM\Table.php(1492): Cake\ORM\Table->_processSave(Object(DebugKit\Model\Entity\Request), Object(ArrayObject))
+#9 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Database\Connection.php(570): Cake\ORM\Table->Cake\ORM\{closure}(Object(Cake\Database\Connection))
+#10 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\ORM\Table.php(1493): Cake\Database\Connection->transactional(Object(Closure))
+#11 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\debug_kit\src\Routing\Filter\DebugBarFilter.php(214): Cake\ORM\Table->save(Object(DebugKit\Model\Entity\Request))
+#12 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Event\EventManager.php(426): DebugKit\Routing\Filter\DebugBarFilter->afterDispatch(Object(Cake\Event\Event), Object(Cake\Network\Request), Object(Cake\Network\Response))
+#13 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Event\EventManager.php(391): Cake\Event\EventManager->_callListener(Array, Object(Cake\Event\Event))
+#14 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Event\EventDispatcherTrait.php(78): Cake\Event\EventManager->dispatch(Object(Cake\Event\Event))
+#15 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(101): Cake\Http\ActionDispatcher->dispatchEvent('Dispatcher.afte...', Array)
+#16 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#17 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#18 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(53): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#19 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#20 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#21 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#22 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#23 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#24 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#25 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Server.php(92): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#26 C:\xampp\htdocs\bmt-penggajian\webroot\index.php(37): Cake\Http\Server->run()
+#27 {main}
+
+
+2017-01-14 15:58:11 Error: [PDOException] SQLSTATE[HY000]: General error: 11 database disk image is malformed
+Request URL: /
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Database\Statement\StatementDecorator.php(172): PDOStatement->execute(NULL)
+#1 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Database\Statement\StatementDecorator.php(172): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#2 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Database\Statement\BufferedStatement.php(75): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Database\Statement\SqliteStatement.php(41): Cake\Database\Statement\BufferedStatement->execute(NULL)
+#4 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Database\Connection.php(276): Cake\Database\Statement\SqliteStatement->execute()
+#5 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Database\Query.php(189): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#6 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\ORM\Table.php(1670): Cake\Database\Query->execute()
+#7 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\ORM\Table.php(1564): Cake\ORM\Table->_insert(Object(DebugKit\Model\Entity\Request), Array)
+#8 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\ORM\Table.php(1492): Cake\ORM\Table->_processSave(Object(DebugKit\Model\Entity\Request), Object(ArrayObject))
+#9 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Database\Connection.php(570): Cake\ORM\Table->Cake\ORM\{closure}(Object(Cake\Database\Connection))
+#10 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\ORM\Table.php(1493): Cake\Database\Connection->transactional(Object(Closure))
+#11 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\debug_kit\src\Routing\Filter\DebugBarFilter.php(214): Cake\ORM\Table->save(Object(DebugKit\Model\Entity\Request))
+#12 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Event\EventManager.php(426): DebugKit\Routing\Filter\DebugBarFilter->afterDispatch(Object(Cake\Event\Event), Object(Cake\Network\Request), Object(Cake\Network\Response))
+#13 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Event\EventManager.php(391): Cake\Event\EventManager->_callListener(Array, Object(Cake\Event\Event))
+#14 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Event\EventDispatcherTrait.php(78): Cake\Event\EventManager->dispatch(Object(Cake\Event\Event))
+#15 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(101): Cake\Http\ActionDispatcher->dispatchEvent('Dispatcher.afte...', Array)
+#16 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#17 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#18 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(53): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#19 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#20 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#21 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#22 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#23 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#24 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#25 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Server.php(92): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#26 C:\xampp\htdocs\bmt-penggajian\webroot\index.php(37): Cake\Http\Server->run()
+#27 {main}
+
+
+2017-01-14 16:34:44 Error: Fatal Error (1): Call to a member function user() on a non-object in [C:\xampp\htdocs\bmt-penggajian\src\Controller\AppController.php, line 37]
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 216
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 98
+[main] - [internal], line ??
+
+
+
+2017-01-15 10:16:53 Error: Fatal Error (1): Call to undefined function App\Controller\length() in [C:\xampp\htdocs\bmt-penggajian\src\Controller\PayrollsController.php, line 136]
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 216
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 98
+[main] - [internal], line ??
+
+
+
+2017-01-15 10:18:12 Error: Fatal Error (1): Call to a member function get() on a non-object in [C:\xampp\htdocs\bmt-penggajian\src\Controller\PayrollsController.php, line 138]
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 216
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 98
+[main] - [internal], line ??
+
+
+
+2017-01-15 10:18:12 Warning: Headers already sent in C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\Debugger.php:753
+2017-01-15 10:18:12 Error: [Cake\Error\FatalErrorException] Call to a member function get() on a non-object
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(98): Cake\Error\BaseErrorHandler->handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 138)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2017-01-15 10:18:56 Error: Fatal Error (1): Call to a member function get() on a non-object in [C:\xampp\htdocs\bmt-penggajian\src\Controller\PayrollsController.php, line 138]
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 216
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 98
+[main] - [internal], line ??
+
+
+
+2017-01-15 10:18:57 Warning: Headers already sent in C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\Debugger.php:753
+2017-01-15 10:18:57 Error: [Cake\Error\FatalErrorException] Call to a member function get() on a non-object
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(98): Cake\Error\BaseErrorHandler->handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 138)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2017-01-15 10:19:41 Error: Fatal Error (4): syntax error, unexpected 'for' (T_FOR) in [C:\xampp\htdocs\bmt-penggajian\src\Controller\PayrollsController.php, line 137]
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 216
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 98
+[main] - [internal], line ??
+
+
+
+2017-01-15 10:19:41 Error: [Cake\Error\FatalErrorException] syntax error, unexpected 'for' (T_FOR)
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(98): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 137)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2017-01-15 10:19:45 Error: Fatal Error (4): syntax error, unexpected 'for' (T_FOR) in [C:\xampp\htdocs\bmt-penggajian\src\Controller\PayrollsController.php, line 137]
+Request URL: /bmt-penggajian/payrolls
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 216
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 98
+[main] - [internal], line ??
+
+
+
+2017-01-15 10:19:45 Error: [Cake\Error\FatalErrorException] syntax error, unexpected 'for' (T_FOR)
+Request URL: /bmt-penggajian/payrolls
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(98): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 137)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2017-01-15 10:19:50 Error: Fatal Error (4): syntax error, unexpected 'for' (T_FOR) in [C:\xampp\htdocs\bmt-penggajian\src\Controller\PayrollsController.php, line 137]
+Request URL: /bmt-penggajian/payrolls
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 216
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 98
+[main] - [internal], line ??
+
+
+
+2017-01-15 10:19:50 Error: [Cake\Error\FatalErrorException] syntax error, unexpected 'for' (T_FOR)
+Request URL: /bmt-penggajian/payrolls
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(98): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 137)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2017-01-15 10:20:12 Error: Fatal Error (1): Call to a member function get() on a non-object in [C:\xampp\htdocs\bmt-penggajian\src\Controller\PayrollsController.php, line 138]
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 216
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 98
+[main] - [internal], line ??
+
+
+
+2017-01-15 10:20:13 Warning: Headers already sent in C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\Debugger.php:753
+2017-01-15 10:20:13 Error: [Cake\Error\FatalErrorException] Call to a member function get() on a non-object
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(98): Cake\Error\BaseErrorHandler->handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 138)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2017-01-15 10:20:59 Error: Fatal Error (1): Call to a member function get() on a non-object in [C:\xampp\htdocs\bmt-penggajian\src\Controller\PayrollsController.php, line 140]
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 216
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 98
+[main] - [internal], line ??
+
+
+
+2017-01-15 10:21:00 Error: [Cake\Error\FatalErrorException] Call to a member function get() on a non-object
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(98): Cake\Error\BaseErrorHandler->handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 140)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2017-01-15 10:22:01 Error: Fatal Error (1): Call to a member function get() on a non-object in [C:\xampp\htdocs\bmt-penggajian\src\Controller\PayrollsController.php, line 140]
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 216
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 98
+[main] - [internal], line ??
+
+
+
+2017-01-15 10:22:01 Error: [Cake\Error\FatalErrorException] Call to a member function get() on a non-object
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(98): Cake\Error\BaseErrorHandler->handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 140)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2017-01-15 10:22:17 Error: Fatal Error (1): Call to a member function get() on a non-object in [C:\xampp\htdocs\bmt-penggajian\src\Controller\PayrollsController.php, line 140]
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 216
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 98
+[main] - [internal], line ??
+
+
+
+2017-01-15 10:22:17 Error: [Cake\Error\FatalErrorException] Call to a member function get() on a non-object
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(98): Cake\Error\BaseErrorHandler->handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 140)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2017-01-15 10:23:45 Error: Fatal Error (1): Call to a member function patchEntity() on a non-object in [C:\xampp\htdocs\bmt-penggajian\src\Controller\PayrollsController.php, line 138]
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 216
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 98
+[main] - [internal], line ??
+
+
+
+2017-01-15 10:23:45 Warning: Headers already sent in C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\Debugger.php:753
+2017-01-15 10:23:45 Error: [Cake\Error\FatalErrorException] Call to a member function patchEntity() on a non-object
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(98): Cake\Error\BaseErrorHandler->handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 138)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2017-01-15 10:24:03 Error: Fatal Error (1): Call to a member function patchEntity() on a non-object in [C:\xampp\htdocs\bmt-penggajian\src\Controller\PayrollsController.php, line 138]
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 216
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 98
+[main] - [internal], line ??
+
+
+
+2017-01-15 10:24:03 Error: [Cake\Error\FatalErrorException] Call to a member function patchEntity() on a non-object
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(98): Cake\Error\BaseErrorHandler->handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 138)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2017-01-15 10:24:17 Error: Fatal Error (1): Call to a member function save() on a non-object in [C:\xampp\htdocs\bmt-penggajian\src\Controller\PayrollsController.php, line 139]
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 216
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 98
+[main] - [internal], line ??
+
+
+
+2017-01-15 10:24:17 Error: [Cake\Error\FatalErrorException] Call to a member function save() on a non-object
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(98): Cake\Error\BaseErrorHandler->handleFatalError(1, 'Call to a membe...', 'C:\\xampp\\htdocs...', 139)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2017-01-15 10:27:00 Warning: Warning (512): Unable to emit headers. Headers sent in file=C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\Debugger.php line=753 in [C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 48]
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 48
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 118
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-01-15 10:27:00 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\Debugger.php:753) in [C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 146]
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitStatusLine() - CORE\src\Http\ResponseEmitter.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 54
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 118
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-01-15 10:27:00 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\Debugger.php:753) in [C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 173]
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 173
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 118
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-01-15 10:27:00 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\Debugger.php:753) in [C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 173]
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 173
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 118
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-01-15 10:34:24 Error: Fatal Error (1): Call to a member function user() on a non-object in [C:\xampp\htdocs\bmt-penggajian\src\Controller\AppController.php, line 37]
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 216
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 98
+[main] - [internal], line ??
+
+
+
+2017-01-15 10:34:59 Error: [Cake\Datasource\Exception\InvalidPrimaryKeyException] Record not found in table "deductions" with primary key [NULL]
+Request URL: /payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\src\Controller\PayrollsController.php(138): Cake\ORM\Table->get(NULL)
+#1 [internal function]: App\Controller\PayrollsController->add()
+#2 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#3 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(122): Cake\Controller\Controller->invokeAction()
+#4 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(96): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\PayrollsController))
+#5 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#6 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#7 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(53): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#8 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#9 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#11 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#12 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#13 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#14 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Server.php(92): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#15 C:\xampp\htdocs\bmt-penggajian\webroot\index.php(37): Cake\Http\Server->run()
+#16 {main}
+
+
+2017-01-15 10:35:00 Warning: Warning (512): Unable to emit headers. Headers sent in file=C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\Debugger.php line=753 in [C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 48]
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 48
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 118
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-01-15 10:35:00 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\Debugger.php:753) in [C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 146]
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitStatusLine() - CORE\src\Http\ResponseEmitter.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 54
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 118
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-01-15 10:35:00 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\Debugger.php:753) in [C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 173]
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 173
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 118
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-01-15 10:35:00 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\Debugger.php:753) in [C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 173]
+Request URL: /bmt-penggajian/payrolls/add
+Referer URL: http://localhost/bmt-penggajian/payrolls/add
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 173
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 118
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-01-15 10:43:23 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+Exception Attributes: array (
+  'class' => 'Css',
+  'plugin' => false,
+  'prefix' => false,
+  '_ext' => false,
+)
+Request URL: /css/bootstrap.min.css
+Referer URL: http://localhost/bmt-penggajian/payrolls/view/2/1
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\ControllerFactory.php(72): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(93): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(53): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#10 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#11 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Server.php(92): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#12 C:\xampp\htdocs\bmt-penggajian\webroot\index.php(37): Cake\Http\Server->run()
+#13 {main}
+
+
+2017-01-15 10:43:24 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+Exception Attributes: array (
+  'class' => 'Css',
+  'plugin' => false,
+  'prefix' => false,
+  '_ext' => false,
+)
+Request URL: /css/bootstrap.min.css
+Referer URL: http://localhost/bmt-penggajian/payrolls/view/1/1
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\ControllerFactory.php(72): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(93): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(53): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#10 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#11 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Server.php(92): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#12 C:\xampp\htdocs\bmt-penggajian\webroot\index.php(37): Cake\Http\Server->run()
+#13 {main}
+
+
+2017-01-15 11:19:09 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+Exception Attributes: array (
+  'class' => 'Css',
+  'plugin' => false,
+  'prefix' => false,
+  '_ext' => false,
+)
+Request URL: /css/bootstrap.min.css
+Referer URL: http://localhost/bmt-penggajian/payrolls/view/2/1
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\ControllerFactory.php(72): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(93): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(53): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#10 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#11 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Server.php(92): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#12 C:\xampp\htdocs\bmt-penggajian\webroot\index.php(37): Cake\Http\Server->run()
+#13 {main}
+
+
+2017-01-15 11:19:14 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+Exception Attributes: array (
+  'class' => 'Css',
+  'plugin' => false,
+  'prefix' => false,
+  '_ext' => false,
+)
+Request URL: /css/bootstrap.min.css
+Referer URL: http://localhost/bmt-penggajian/payrolls/view/1/1
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\ControllerFactory.php(72): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(93): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(53): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#10 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#11 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Server.php(92): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#12 C:\xampp\htdocs\bmt-penggajian\webroot\index.php(37): Cake\Http\Server->run()
+#13 {main}
+
+
+2017-01-15 11:19:19 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+Exception Attributes: array (
+  'class' => 'Css',
+  'plugin' => false,
+  'prefix' => false,
+  '_ext' => false,
+)
+Request URL: /css/bootstrap.min.css
+Referer URL: http://localhost/bmt-penggajian/payrolls/view/1/1
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\ControllerFactory.php(72): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(93): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(53): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#10 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#11 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Server.php(92): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#12 C:\xampp\htdocs\bmt-penggajian\webroot\index.php(37): Cake\Http\Server->run()
+#13 {main}
+
+
+2017-01-15 11:23:57 Error: Fatal Error (1): Class 'App\Controller\TableRegistry' not found in [C:\xampp\htdocs\bmt-penggajian\src\Controller\UsersController.php, line 69]
+Request URL: /bmt-penggajian/users/add
+Referer URL: http://localhost/bmt-penggajian/users/add
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 216
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 98
+[main] - [internal], line ??
+
+
+
+2017-01-15 11:23:57 Error: [Cake\Error\FatalErrorException] Class 'App\Controller\TableRegistry' not found
+Request URL: /bmt-penggajian/users/add
+Referer URL: http://localhost/bmt-penggajian/users/add
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(98): Cake\Error\BaseErrorHandler->handleFatalError(1, 'Class 'App\\Cont...', 'C:\\xampp\\htdocs...', 69)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2017-01-15 11:41:16 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Utility\Text.php, line 213]
+Request URL: /bmt-penggajian/users/add
+Referer URL: http://localhost/bmt-penggajian/users/add
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 216
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 98
+[main] - [internal], line ??
+
+
+
+2017-01-15 11:41:17 Warning: Headers already sent in C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\Debugger.php:753
+2017-01-15 11:41:17 Error: [Cake\Error\FatalErrorException] Maximum execution time of 30 seconds exceeded
+Request URL: /bmt-penggajian/users/add
+Referer URL: http://localhost/bmt-penggajian/users/add
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(98): Cake\Error\BaseErrorHandler->handleFatalError(1, 'Maximum executi...', 'C:\\xampp\\htdocs...', 213)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2017-01-15 11:46:59 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+Exception Attributes: array (
+  'class' => 'Css',
+  'plugin' => false,
+  'prefix' => false,
+  '_ext' => false,
+)
+Request URL: /css/bootstrap.min.css
+Referer URL: http://localhost/bmt-penggajian/payrolls/view/1/1
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\ControllerFactory.php(72): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(93): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(53): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#10 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#11 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Server.php(92): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#12 C:\xampp\htdocs\bmt-penggajian\webroot\index.php(37): Cake\Http\Server->run()
+#13 {main}
+
+
+2017-01-15 11:47:09 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+Exception Attributes: array (
+  'class' => 'Css',
+  'plugin' => false,
+  'prefix' => false,
+  '_ext' => false,
+)
+Request URL: /css/bootstrap.min.css
+Referer URL: http://localhost/bmt-penggajian/payrolls/view/1/1
+Stack Trace:
+#0 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\ControllerFactory.php(72): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(93): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(53): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#10 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#11 C:\xampp\htdocs\bmt-penggajian\vendor\cakephp\cakephp\src\Http\Server.php(92): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#12 C:\xampp\htdocs\bmt-penggajian\webroot\index.php(37): Cake\Http\Server->run()
+#13 {main}
+
+
