@@ -19,7 +19,7 @@ echo "<div class='fake_input'>".$education_allowance."</div>";
 echo "<p class='fake_label'>Tunjangan Transportasi</p>";
 echo "<div class='fake_input'>".$transport_allowance."</div>";
 
-$i = 0;
+$i = 60;
 // Echo BPJS
 foreach ($bpjs_allowances as $bpjs_allowance) {
 	echo $this->Form->input('Payrolls.salaryallowances.'.$i.'.payrolls_id',  ['default'=>$bpjs_allowance->id, 'type'=>'hidden']);
@@ -29,7 +29,7 @@ foreach ($bpjs_allowances as $bpjs_allowance) {
 }
 
 echo "<h3 class='title_form'>Tambahan</h3>";
-
+$i = 0;
 // echo $other_allowances;
 foreach ($other_allowances as $other_allowance) {
     echo $this->Form->input('Payrolls.salaryallowances.'.$i.'.payrolls_id',  ['default'=>$other_allowance->id, 'type'=>'hidden']);
@@ -39,6 +39,7 @@ foreach ($other_allowances as $other_allowance) {
 }
 
 echo "<h3 class='title_form'>Potongan</h3>";
+$i = 0;
 // echo $deductions;
 foreach ($deductions as $deduction) {
     echo $this->Form->input('Payrolls.salarydeductions.'.$i.'.payrolls_id',  ['default'=>$deduction->id, 'type'=>'hidden']);

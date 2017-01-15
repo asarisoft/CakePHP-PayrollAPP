@@ -126,7 +126,10 @@ class PayrollsController extends AppController
             $data = $this->request->data;
             $user_id = $data['Payrolls']['users_id'];
             $allowancesData = $data['Payrolls']['salaryallowances'];
-            for ($x = 2; $x<count($allowancesData); $x++) {
+            unset($allowancesData[60]);
+            unset($allowancesData[61]);
+
+            for ($x = 0; $x<count($allowancesData); $x++) {
                 $allowance = $Allowances->get($allowancesData[$x]['payrolls_id']);
                 $dataAllowance = ['value' => $allowancesData[$x]['value']];
                 $allowance = $Allowances->patchEntity($allowance, $dataAllowance);
@@ -135,8 +138,8 @@ class PayrollsController extends AppController
 
             $deductionsData = $data['Payrolls']['salarydeductions'];
             for ($y=0; $y < count($deductionsData); $y++) {
-                $deduction = $Deductions->get($deductionsData[$y + $x]['payrolls_id']);
-                $datadeduction = ['value' => $deductionsData[$y + $x]['value']];
+                $deduction = $Deductions->get($deductionsData[$y]['payrolls_id']);
+                $datadeduction = ['value' => $deductionsData[$y]['value']];
                 $deduction = $Deductions->patchEntity($deduction, $datadeduction);
                 $Deductions->save($deduction);
             }
@@ -144,7 +147,8 @@ class PayrollsController extends AppController
             // debug($data);
             $user = $Users
                 ->find()
-                ->contain(['JobPositions', 'Educations', 'MaritalStatuses', 'Transports', 
+                ->contain(['JobPositions', 'Educations', 'MaritalStatuses', 
+                            'Transports', 
                            'Allowances', 'Bpjs', "Deductions"])
                 ->where([
                     'Users.id' => $user_id,
@@ -168,7 +172,6 @@ class PayrollsController extends AppController
             $payroll->month = $this->request->data['Payrolls']['month']['month'];
             $payroll->status = 0;
 
-            // debug($payroll);
             if ($this->Payrolls->save($payroll)) {
                 $this->setSuccesMessage('succes-save');
                 return $this->redirect(['action' => 'index']);

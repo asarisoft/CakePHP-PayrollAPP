@@ -165,7 +165,6 @@ class UsersController extends AppController
     }
 
     public function changePassword() { 
-        $this->__isAdmin();
         $user= $this->Users->get($this->Auth->user('id')); 
         if (!empty($this->request->data)) { 
             $user = $this->Users->patchEntity($user, $this->request->data, ['validate' => 'password']); 
