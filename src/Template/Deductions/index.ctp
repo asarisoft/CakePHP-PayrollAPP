@@ -6,6 +6,26 @@
 </nav>
 <div class="deductions index large-10 medium-8 columns content">
     <h3><?= __('Potongan Gaji') ?></h3>
+
+    <?php
+        echo $this->Form->create("Filter", ['url' => ['controller' => 'deductions', 'action' => 'index'], 'type' => 'get']);
+    ?>
+    <div class="payrolls form large-8 medium-4">
+    <table>
+        <tr>
+            <td width="30%"><?php echo $this->Form->input('user_id', ['options' => $users, "label"=>""]); ?></td>
+            <td class="table-button">
+                <?php
+                    echo $this->Form->button(__('Submit'), ["class"=>"small-button"]);
+                    echo $this->Form->end();
+                ?>      
+            </td>
+        </tr>
+    </table>
+    </div>
+
+    <br/>
+
     <table cellpadding="0" cellspacing="0" class="large-8">
         <thead>
             <tr>

@@ -4,14 +4,13 @@
         <li><?= $this->Html->link(__('Tambah Data'), ['action' => 'add']) ?></li>
     </ul>
 </nav>
-
 <div class="payrolls index large-10 medium-8 columns content">
 
     <h3><?= __('Daftar Gaji') ?></h3>
+    
     <?php
         echo $this->Form->create("Filter", ['url' => ['controller' => 'payrolls', 'action' => 'index'], 'type' => 'get']);
     ?>
-
     <div class="payrolls form large-10 medium-5">
     <table>
         <tr>
