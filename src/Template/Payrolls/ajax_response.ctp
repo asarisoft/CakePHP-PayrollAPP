@@ -22,7 +22,7 @@ echo "<div class='fake_input'>".$transport_allowance."</div>";
 $i = 0;
 // Echo BPJS
 foreach ($bpjs_allowances as $bpjs_allowance) {
-	echo $this->Form->input('Payrolls.salaryallowances.'.$i.'.payrolls_id',  ['default'=>$bpjs_allowance->name, 'type'=>'hidden']);
+	echo $this->Form->input('Payrolls.salaryallowances.'.$i.'.payrolls_id',  ['default'=>$bpjs_allowance->id, 'type'=>'hidden']);
     echo $this->Form->input('Payrolls.salaryallowances.'.$i.'.name',  ['default'=>$bpjs_allowance->name, 'type'=>'hidden']);
     echo $this->Form->input('Payrolls.salaryallowances.'.$i.'.value',  ['default'=>$bpjs_allowance->value, 'label'=>$bpjs_allowance->name, 'readonly'=>'readonly']);
     $i++;
@@ -32,7 +32,7 @@ echo "<h3 class='title_form'>Tambahan</h3>";
 
 // echo $other_allowances;
 foreach ($other_allowances as $other_allowance) {
-    echo $this->Form->input('Payrolls.salaryallowances.'.$i.'.payrolls_id',  ['default'=>$other_allowance->name, 'type'=>'hidden']);
+    echo $this->Form->input('Payrolls.salaryallowances.'.$i.'.payrolls_id',  ['default'=>$other_allowance->id, 'type'=>'hidden']);
     echo $this->Form->input('Payrolls.salaryallowances.'.$i.'.name',  ['default'=>$other_allowance->name, 'type'=>'hidden']);
     echo $this->Form->input('Payrolls.salaryallowances.'.$i.'.value',  ['default'=>$other_allowance->value, 'label'=>$other_allowance->name]);
     $i++;
@@ -41,7 +41,7 @@ foreach ($other_allowances as $other_allowance) {
 echo "<h3 class='title_form'>Potongan</h3>";
 // echo $deductions;
 foreach ($deductions as $deduction) {
-    echo $this->Form->input('Payrolls.salarydeductions.'.$i.'.payrolls_id',  ['default'=>$deduction->name, 'type'=>'hidden']);
+    echo $this->Form->input('Payrolls.salarydeductions.'.$i.'.payrolls_id',  ['default'=>$deduction->id, 'type'=>'hidden']);
     echo $this->Form->input('Payrolls.salarydeductions.'.$i.'.name',  ['default'=>$deduction->name, 'type'=>'hidden']);
     echo $this->Form->input('Payrolls.salarydeductions.'.$i.'.value',  ['default'=>$deduction->value, 'label'=>$deduction->name]);
     $i++;

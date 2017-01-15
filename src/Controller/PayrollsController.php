@@ -119,12 +119,29 @@ class PayrollsController extends AppController
     public function add()
     {   
         $Users = TableRegistry::get('Users');
+        $Allowances = TableRegistry::get('Allowances');
+        $Deductions = TableRegistry::get('Deductions');
         $payroll = $this->Payrolls->newEntity();
         if ($this->request->is('post')) {
-
             $data = $this->request->data;
-            // debug($data);
             $user_id = $data['Payrolls']['users_id'];
+            $allowancesData = $data['Payrolls']['salaryallowances'];
+            for ($x = 2; $x<count($allowancesData); $x++) {
+                $allowance = $Allowances->get($allowancesData[$x]['payrolls_id']);
+                $dataAllowance = ['value' => $allowancesData[$x]['value']];
+                $allowance = $Allowances->patchEntity($allowance, $dataAllowance);
+                $Allowances->save($allowance);
+            }
+
+            $deductionsData = $data['Payrolls']['salarydeductions'];
+            for ($y=0; $y < count($deductionsData); $y++) {
+                $deduction = $Deductions->get($deductionsData[$y + $x]['payrolls_id']);
+                $datadeduction = ['value' => $deductionsData[$y + $x]['value']];
+                $deduction = $Deductions->patchEntity($deduction, $datadeduction);
+                $Deductions->save($deduction);
+            }
+
+            // debug($data);
             $user = $Users
                 ->find()
                 ->contain(['JobPositions', 'Educations', 'MaritalStatuses', 'Transports', 
@@ -152,7 +169,6 @@ class PayrollsController extends AppController
             $payroll->status = 0;
 
             // debug($payroll);
-
             if ($this->Payrolls->save($payroll)) {
                 $this->setSuccesMessage('succes-save');
                 return $this->redirect(['action' => 'index']);

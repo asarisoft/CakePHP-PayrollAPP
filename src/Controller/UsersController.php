@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\ORM\TableRegistry;
 
 
 class UsersController extends AppController
@@ -62,9 +63,36 @@ class UsersController extends AppController
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->data);
-            if ($this->Users->save($user)) {
-                $this->setSuccesMessage('succes-save');
+            $user = $this->Users->save($user);
+            if ($user) {
+                $user_id = $user['id'];
 
+                //Generate Default Allowances
+                $Allowances = TableRegistry::get('Allowances');
+                $listAllowance = ['Over Time/Lembur', 'Insentif Funding', 'Insentif Lending', 
+                                  'Insentif Target Kolektif', 'Gratifikasi/Bonus'];
+                for($x=0; $x < count($listAllowance); $x++) {
+                    $newData = ['users_id' => $user_id,
+                                'name' => $listAllowance[$x],
+                                'value' => 0];
+                    $allowance = $Allowances->patchEntity($Allowances->newEntity(), $newData);
+                    $Allowances->save($allowance);
+                }
+
+                // Generate Default Deductions
+                $Deductions = TableRegistry::get('Deductions');
+                $listDeduction = ['Zakat Penghasilan', 'Angsuran Pokok Pembiayaan', 
+                                   'Angsuran Bagi Hasil Pembiayaan', 'Setoran BPJS Tenaga Kerja', 
+                                   'Tabungan Pensiun', 'Arisan', 'Kas Karyawan', 'Alpha / Absen' ];
+                for($x=0; $x < count($listDeduction); $x++) {
+                    $newData = ['users_id' => $user_id,
+                                'name' => $listDeduction[$x],
+                                'value' => 0];
+                    $deduction = $Deductions->patchEntity($Deductions->newEntity(), $newData);
+                    $Deductions->save($deduction);
+                }
+
+                $this->setSuccesMessage('succes-save');
                 return $this->redirect(['action' => 'index']);
             } else {
                $this->setErrorMessage('failed-save');

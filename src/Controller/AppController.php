@@ -34,6 +34,9 @@ class AppController extends Controller
             $this->set('_serialize', true);
         }
 
+    }
+
+    public function beforeFilter(Event $event) {
         $user = $this->Auth->user();
         if($user != null) {
             $username = $user['username'];
